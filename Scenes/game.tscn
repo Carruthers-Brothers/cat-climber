@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://gmgo7r2wlrsa"]
 
-[ext_resource type="Script" path="res://Scenes/game.gd" id="1_e3cyq"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
 [ext_resource type="Texture2D" uid="uid://dobmuc5l6wxy3" path="res://Assets/Placeholder/skyscraper.png" id="2_vnm3r"]
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
@@ -23,5 +23,3 @@ centered = false
 
 [node name="Conductor" parent="." instance=ExtResource("3_w8xvc")]
 autoplay = false
-
-[connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]

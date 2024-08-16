@@ -2,9 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 140
 
-var current_position_beat = 0
-var current_position_seconds = 0.0 # the time when the last beat was signaled
-var current_time = 0.0 # the current time in the song
+var time_since_last_beat = 0.0 
 
 func _physics_process(delta):
 	
@@ -19,8 +17,7 @@ func _physics_process(delta):
 
 
 func move(direction):
-	if abs(current_time - current_position_seconds) < .2: # within threshold for being on beat
-		print("time that input was pressed is " + str(current_time) + " and current time in song is " + str(current_position_seconds))
+	if time_since_last_beat < 0.06 or time_since_last_beat > 0.6: # grace period
 		position += direction * SPEED
 		var clamped_position = clamp(global_position.x, -280, 280) # make sure it is within bounds of skyscraper
 		global_position.x = clamped_position
