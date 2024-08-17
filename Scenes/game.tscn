@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=10 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
 [ext_resource type="Texture2D" uid="uid://dobmuc5l6wxy3" path="res://Assets/Placeholder/skyscraper.png" id="2_vnm3r"]
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
 [ext_resource type="PackedScene" uid="uid://cg7noqaqme0mf" path="res://Scenes/spawner.tscn" id="5_kre34"]
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
+[ext_resource type="Texture2D" uid="uid://bwovsaophlar4" path="res://Assets/hud_heartFull.png" id="6_o6qnt"]
+[ext_resource type="Texture2D" uid="uid://dacn6yorpvrws" path="res://Assets/hud_heartEmpty.png" id="7_vakit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vra"]
+bg_color = Color(0, 0, 0, 0.235294)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_e3cyq")
@@ -44,5 +54,33 @@ position = Vector2(292, -410)
 
 [node name="Conductor" parent="." instance=ExtResource("3_w8xvc")]
 autoplay = false
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("6_inbif")
+
+[node name="Panel" type="Panel" parent="HUD"]
+offset_left = 883.0
+offset_top = 16.0
+offset_right = 1082.0
+offset_bottom = 87.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
+
+[node name="FullHeart" type="TextureRect" parent="HUD"]
+offset_left = 903.0
+offset_top = 30.0
+offset_right = 1062.0
+offset_bottom = 75.0
+texture = ExtResource("6_o6qnt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="EmptyHeart" type="TextureRect" parent="HUD"]
+offset_left = 903.0
+offset_top = 30.0
+offset_right = 956.0
+offset_bottom = 75.0
+texture = ExtResource("7_vakit")
+expand_mode = 1
+stretch_mode = 1
 
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]

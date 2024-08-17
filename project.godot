@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.2", "Mobile")
 
 Global="*res://Scripts/global.gd"
 
+[dotnet]
+
+project/assembly_name="Cat Climber"
+
 [importer_defaults]
 
 animation_library={

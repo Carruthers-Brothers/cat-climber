@@ -7,6 +7,7 @@ const SPEED = 140
 
 var time_since_last_beat = 0.0 
 var walk1 = true
+var immune_to = []
 
 func _physics_process(delta):
 	
@@ -32,3 +33,11 @@ func move(direction):
 		else:
 			animated_sprite_2d.play("walk1")
 			walk1 = true
+			
+func take_damage(enemy):
+	if immune_to.find(enemy) == -1:
+		set_modulate(Color(1, 0.3, 0.3, 0.3))
+		Global.lose_life()
+		immune_to.push_back(enemy)
+		print(immune_to)
+
