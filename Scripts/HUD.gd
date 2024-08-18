@@ -3,7 +3,11 @@ extends CanvasLayer
 func _ready():
 	Global.hud = self
 	load_hearts()
-
+	$HeightPanel/Number.text = str(Global.height)
+	
+func _process(delta):
+	$HeightPanel/Number.text = str(Global.height)
+	
 func load_hearts():
 	$PawPrint.size.x = Global.lives * 1218
 

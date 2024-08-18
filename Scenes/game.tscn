@@ -58,7 +58,7 @@ autoplay = false
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("6_inbif")
 
-[node name="Panel" type="Panel" parent="HUD"]
+[node name="PawPanel" type="Panel" parent="HUD"]
 offset_left = 959.0
 offset_top = 16.0
 offset_right = 1137.0
@@ -74,6 +74,35 @@ scale = Vector2(0.04, 0.04)
 texture = ExtResource("7_iv4ol")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="HeightPanel" type="Panel" parent="HUD"]
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 221.0
+offset_bottom = 91.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
+
+[node name="Height" type="Label" parent="HUD/HeightPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 110.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Height:"
+horizontal_alignment = 1
+
+[node name="Number" type="Label" parent="HUD/HeightPanel"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 18.0
+offset_right = 168.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "####"
+horizontal_alignment = 1
 
 [node name="Fish" type="TextureRect" parent="HUD"]
 offset_left = 549.0
