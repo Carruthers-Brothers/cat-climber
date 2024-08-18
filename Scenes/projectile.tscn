@@ -92,7 +92,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 20.0
+"speed": 10.0
 }]
 
 [node name="Projectile" type="Node2D"]
@@ -111,7 +111,8 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_2ainn")
-frame_progress = 0.24079
+autoplay = "default"
+frame_progress = 0.685121
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
