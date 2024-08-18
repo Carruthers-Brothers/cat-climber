@@ -64,7 +64,7 @@ offset_right = 1088.0
 offset_bottom = 86.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 
-[node name="FullHeart" type="TextureRect" parent="HUD"]
+[node name="PawPrint" type="TextureRect" parent="HUD"]
 offset_left = 916.0
 offset_top = 25.0
 offset_right = 4616.0
