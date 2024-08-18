@@ -24,6 +24,14 @@ func _physics_process(delta):
 func move(direction):
 	var adjusted_time = time_since_last_beat - game.delay # adjusted delay found at beginning
 	if time_since_last_beat < 0.06 or time_since_last_beat > 0.6: # grace period of .06 early / late
+		if direction.y == -1:
+			Global.height += 1
+		elif direction.y == 1:
+			Global.height -= 1
+			
+		print(direction)
+		print('direction')
+		print(direction.x)
 		position += direction * SPEED
 		var clamped_position = clamp(global_position.x, -280, 280) # make sure it is within bounds of skyscraper
 		global_position.x = clamped_position
@@ -46,6 +54,7 @@ func _on_timer_timeout():
 	if Global.lives == 0:
 		get_tree().change_scene_to_file("res://Scenes/game.tscn")
 		Global.lives = 3
+		Global.height = 0
 	
 	set_modulate(Color(1, 1, 1, 1))
 	is_immune = false
