@@ -3,7 +3,9 @@ extends Node2D
 @export var bpm = 90
 
 @onready var audio_stream_player = $AudioStreamPlayer
-@onready var hidden_button = $HiddenButton
+@onready var hidden_button = $VBoxContainer/HiddenButton
+@onready var delay_label = $VBoxContainer/HiddenButton/DelayLabel
+@onready var count_label = $VBoxContainer/CountLabel
 
 
 var press_count = 0
@@ -21,13 +23,14 @@ func _process(delta):
 		var current_delay = last_beat_time
 		print("current delay is ", current_delay)
 		press_count += 1
+		count_label.text = str(press_count)
 		total_delay += current_delay
 		average_delay = total_delay / press_count
 		print("average delay is ", average_delay)
 		if press_count >= 15:
 			Global.delay = average_delay
 			hidden_button.show()
-
+			delay_label.text = "Delay: " + str(average_delay) + "ms"
 
 
 func _on_play_button_pressed():
