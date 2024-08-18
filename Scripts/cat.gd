@@ -7,7 +7,7 @@ const SPEED = 140
 
 var time_since_last_beat = 0.0 
 var walk1 = true
-var immune_to = []
+var is_immune = false
 
 func _physics_process(delta):
 	
@@ -35,8 +35,17 @@ func move(direction):
 			walk1 = true
 			
 func take_damage(enemy):
-	if immune_to.find(enemy) == -1:
+	if is_immune == false:
 		set_modulate(Color(1, 0.3, 0.3, 0.3))
 		Global.lose_life()
-		immune_to.push_back(enemy)
+		is_immune = true
+		
+		$Timer.start()
 
+func _on_timer_timeout():
+	if Global.lives == 0:
+		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		Global.lives = 3
+	
+	set_modulate(Color(1, 1, 1, 1))
+	is_immune = false
