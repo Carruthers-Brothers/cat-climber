@@ -36,4 +36,3 @@ func report_beat(): # will just report beat once when it gets there
 		time_since_last_beat = 0.0
 		emit_signal("beat", song_position_beats)
 		
-

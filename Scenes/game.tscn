@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=10 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
 [ext_resource type="Texture2D" uid="uid://dobmuc5l6wxy3" path="res://Assets/Placeholder/skyscraper.png" id="2_vnm3r"]
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
 [ext_resource type="PackedScene" uid="uid://cg7noqaqme0mf" path="res://Scenes/spawner.tscn" id="5_kre34"]
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
+[ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="7_iv4ol"]
+[ext_resource type="Texture2D" uid="uid://bbuipvn4xvq3b" path="res://Assets/fish1.png" id="8_k8wkv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vra"]
+bg_color = Color(0, 0, 0, 0.235294)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_e3cyq")
@@ -45,4 +55,68 @@ position = Vector2(292, -410)
 [node name="Conductor" parent="." instance=ExtResource("3_w8xvc")]
 autoplay = false
 
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("6_inbif")
+
+[node name="PawPanel" type="Panel" parent="HUD"]
+offset_left = 959.0
+offset_top = 16.0
+offset_right = 1137.0
+offset_bottom = 87.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
+
+[node name="PawPrint" type="TextureRect" parent="HUD"]
+offset_left = 975.0
+offset_top = 26.0
+offset_right = 4650.0
+offset_bottom = 1251.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("7_iv4ol")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="HeightPanel" type="Panel" parent="HUD"]
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 221.0
+offset_bottom = 91.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
+
+[node name="Height" type="Label" parent="HUD/HeightPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 110.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Height:"
+horizontal_alignment = 1
+
+[node name="Number" type="Label" parent="HUD/HeightPanel"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 18.0
+offset_right = 168.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "####"
+horizontal_alignment = 1
+
+[node name="Fish" type="TextureRect" parent="HUD"]
+offset_left = -251.0
+offset_top = -105.0
+offset_right = 1395.0
+offset_bottom = 1239.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(823, 672)
+texture = ExtResource("8_k8wkv")
+
+[node name="Timer" type="Timer" parent="HUD"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
+[connection signal="beat" from="Conductor" to="HUD" method="_on_conductor_beat"]
+[connection signal="timeout" from="HUD/Timer" to="HUD" method="_on_timer_timeout"]
