@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=9 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
@@ -6,8 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
 [ext_resource type="PackedScene" uid="uid://cg7noqaqme0mf" path="res://Scenes/spawner.tscn" id="5_kre34"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
-[ext_resource type="Texture2D" uid="uid://bwovsaophlar4" path="res://Assets/hud_heartFull.png" id="6_o6qnt"]
-[ext_resource type="Texture2D" uid="uid://dacn6yorpvrws" path="res://Assets/hud_heartEmpty.png" id="7_vakit"]
+[ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="7_iv4ol"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vra"]
 bg_color = Color(0, 0, 0, 0.235294)
@@ -59,27 +58,19 @@ autoplay = false
 script = ExtResource("6_inbif")
 
 [node name="Panel" type="Panel" parent="HUD"]
-offset_left = 883.0
-offset_top = 16.0
-offset_right = 1082.0
-offset_bottom = 87.0
+offset_left = 889.0
+offset_top = 15.0
+offset_right = 1088.0
+offset_bottom = 86.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 
 [node name="FullHeart" type="TextureRect" parent="HUD"]
-offset_left = 903.0
-offset_top = 30.0
-offset_right = 1062.0
-offset_bottom = 75.0
-texture = ExtResource("6_o6qnt")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="EmptyHeart" type="TextureRect" parent="HUD"]
-offset_left = 903.0
-offset_top = 30.0
-offset_right = 956.0
-offset_bottom = 75.0
-texture = ExtResource("7_vakit")
+offset_left = 916.0
+offset_top = 25.0
+offset_right = 4616.0
+offset_bottom = 1250.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("7_iv4ol")
 expand_mode = 1
 stretch_mode = 1
 
