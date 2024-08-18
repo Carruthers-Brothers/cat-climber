@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpart8foac1vt"]
+[gd_scene load_steps=6 format=3 uid="uid://dpart8foac1vt"]
 
-[ext_resource type="Script" path="res://Scenes/settings_menu.gd" id="1_667e5"]
+[ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="1_667e5"]
 [ext_resource type="PackedScene" uid="uid://bv128c5ohqcd0" path="res://Scenes/calibrate_screen.tscn" id="1_c0ac2"]
+[ext_resource type="PackedScene" uid="uid://dv2hwpyfd6txe" path="res://Scenes/display_settings_menu.tscn" id="3_1nsbr"]
+[ext_resource type="PackedScene" uid="uid://frq2x56putw5" path="res://Scenes/audio_settings_menu.tscn" id="4_886el"]
+
+[sub_resource type="SystemFont" id="SystemFont_y8c6f"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -12,45 +18,96 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_667e5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -3.0
-offset_right = 1929.0
-offset_bottom = 1090.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
 color = Color(0.303882, 0.640201, 0.639913, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 866.0
-offset_top = 385.0
-offset_right = 1075.0
-offset_bottom = 565.0
-theme_override_constants/separation = 23
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 42
+theme_override_fonts/font = SubResource("SystemFont_y8c6f")
+theme_override_font_sizes/font_size = 64
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LatencySetting" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="LatencySetting" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "Calibrate Latency"
 
-[node name="ViewportSetting" type="Button" parent="VBoxContainer"]
+[node name="ViewportSetting" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
-text = "Viewport Size"
+text = "Display"
+
+[node name="MusicVolume" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Audio"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Back"
 
 [node name="CalibrateScreen" parent="." instance=ExtResource("1_c0ac2")]
 visible = false
+layout_mode = 1
 
-[connection signal="pressed" from="VBoxContainer/LatencySetting" to="." method="_on_latency_setting_pressed"]
-[connection signal="pressed" from="VBoxContainer/ViewportSetting" to="." method="_on_viewport_setting_pressed"]
+[node name="DisplaySettingsMenu" parent="." instance=ExtResource("3_1nsbr")]
+visible = false
+layout_mode = 1
+
+[node name="AudioSettingsMenu" parent="." instance=ExtResource("4_886el")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/LatencySetting" to="." method="_on_latency_setting_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ViewportSetting" to="." method="_on_viewport_setting_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MusicVolume" to="." method="_on_music_volume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

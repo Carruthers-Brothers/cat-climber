@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=12 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
@@ -17,13 +17,6 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3e5e"]
-bg_color = Color(0.12549, 0.12549, 0.12549, 0.690196)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_e3cyq")
@@ -113,17 +106,10 @@ theme_override_font_sizes/font_size = 28
 text = "####"
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="HUD"]
-offset_left = 928.0
-offset_top = 852.0
-offset_right = 1141.0
-offset_bottom = 1047.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_n3e5e")
-
 [node name="Fish" type="TextureRect" parent="HUD"]
-offset_left = 209.0
+offset_left = 212.0
 offset_top = 279.0
-offset_right = 1855.0
+offset_right = 1858.0
 offset_bottom = 1623.0
 scale = Vector2(0.1, 0.1)
 pivot_offset = Vector2(823, 672)
@@ -146,12 +132,7 @@ grow_vertical = 1
 [node name="DeathMenu" parent="HUD" instance=ExtResource("10_axuc2")]
 visible = false
 
-[node name="DeathTimer" type="Timer" parent="HUD/DeathMenu"]
-process_mode = 3
-wait_time = 1.5
-
 [connection signal="player_death" from="Cat" to="." method="_on_cat_player_death"]
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
 [connection signal="beat" from="Conductor" to="HUD" method="_on_conductor_beat"]
 [connection signal="timeout" from="HUD/Timer" to="HUD" method="_on_timer_timeout"]
-[connection signal="timeout" from="HUD/DeathMenu/DeathTimer" to="." method="_on_death_timer_timeout"]

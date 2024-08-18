@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgtokr7qmydy2"]
+[gd_scene load_steps=7 format=3 uid="uid://bgtokr7qmydy2"]
 
 [ext_resource type="Script" path="res://Scripts/cat.gd" id="1_faf3o"]
 [ext_resource type="Texture2D" uid="uid://dkbbsybgw6jx7" path="res://Assets/cat_spritesheet.png" id="2_ftbpi"]
+[ext_resource type="AudioStream" uid="uid://c01y371tt7khi" path="res://Assets/Music/short-meow-hit.mp3" id="3_30ngj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cdvjs"]
 atlas = ExtResource("2_ftbpi")
@@ -47,5 +48,8 @@ polygon = PackedVector2Array(-28, -74, -50, -56, -38, -30, -30, -8, -39, 13, -34
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_30ngj")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

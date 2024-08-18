@@ -1,12 +1,12 @@
-extends Node2D
+extends Control
 
 @export var bpm = 90
 
 @onready var audio_stream_player = $AudioStreamPlayer
-@onready var hidden_button = $VBoxContainer/HiddenButton
-@onready var delay_label = $VBoxContainer/HiddenButton/DelayLabel
-@onready var count_label = $VBoxContainer/CountLabel
-
+@onready var delay_label = $MarginContainer/VBoxContainerAll/VBoxContainer/DelayLabel
+@onready var count_label = $MarginContainer/VBoxContainerAll/VBoxContainer/CountLabel
+@onready var complete_label = $MarginContainer/VBoxContainerAll/VBoxContainer/VBoxContainer/CompleteLabel
+@onready var delay_slider = $MarginContainer/VBoxContainerAll/VBoxContainer/DelaySlider
 
 var press_count = 0
 var total_delay = 0.0
@@ -21,17 +21,28 @@ func _process(delta):
 	last_beat_time = time_into_song - (int(floor(time_into_song / sec_per_beat)) * sec_per_beat)
 	if Input.is_action_just_pressed("up"):
 		var current_delay = last_beat_time
-		print("current delay is ", current_delay)
 		press_count += 1
 		count_label.text = str(press_count)
 		total_delay += current_delay
 		average_delay = total_delay / press_count
-		print("average delay is ", average_delay)
+		delay_label.text = "Delay: " + str(snapped(average_delay, 0.001)) + "s"
 		if press_count >= 15:
 			Global.delay = average_delay
-			hidden_button.show()
-			delay_label.text = "Delay: " + str(average_delay) + "ms"
+			complete_label.show()
 
 
-func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+
+func _on_h_slider_value_changed(value):
+	delay_label.text = "Delay: " + str(value) + "s"
+	Global.delay = value
+
+
+func _on_back_pressed():
+	hide()
+	audio_stream_player.stop()
+	press_count = 0
+	count_label.text = "0"
+	complete_label.hide()
+	total_delay = 0.0
+	average_delay = 0.0
+	delay_label.text = "Delay: "

@@ -1,75 +1,98 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccxvvldipp0tu"]
+[gd_scene load_steps=7 format=3 uid="uid://ccxvvldipp0tu"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_yl3ek"]
 [ext_resource type="PackedScene" uid="uid://dpart8foac1vt" path="res://Scenes/settings_menu.tscn" id="2_xnmmh"]
 
+[sub_resource type="SystemFont" id="SystemFont_6w3ro"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_gdm5c"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_bcljs"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_yyey1"]
+font_names = PackedStringArray("Impact")
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yl3ek")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -967.0
-offset_top = -546.0
-offset_right = 965.0
-offset_bottom = 544.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
 color = Color(0, 0.683058, 0.686115, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainerAll" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-offset_left = -108.0
-offset_top = -105.0
-offset_right = 116.0
-offset_bottom = 103.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainerAll"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_constants/shadow_offset_x = 12
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = SubResource("SystemFont_6w3ro")
+theme_override_font_sizes/font_size = 64
 text = "Cat Climber"
+horizontal_alignment = 1
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainerAll"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainerButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainerAll/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons"]
+custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = SubResource("SystemFont_gdm5c")
+theme_override_font_sizes/font_size = 32
 text = "Play"
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons"]
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = SubResource("SystemFont_bcljs")
+theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons"]
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = SubResource("SystemFont_yyey1")
+theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[node name="SettingsMenu" parent="." instance=ExtResource("2_xnmmh")]
+[node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("2_xnmmh")]
 visible = false
 layout_mode = 2
-anchors_preset = 0
-offset_left = -966.0
-offset_top = -545.0
-offset_right = -966.0
-offset_bottom = -545.0
 
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]
+[connection signal="pressed" from="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons/QuitButton" to="." method="_on_quit_button_button_down"]

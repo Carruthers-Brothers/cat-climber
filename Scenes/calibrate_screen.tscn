@@ -1,36 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv128c5ohqcd0"]
+[gd_scene load_steps=3 format=3 uid="uid://bv128c5ohqcd0"]
 
 [ext_resource type="Script" path="res://Scripts/calibrate_screen.gd" id="1_l4y4x"]
 [ext_resource type="AudioStream" uid="uid://b3utff8eced5" path="res://Assets/Music/game_jam_song_drums.mp3" id="2_fyje6"]
 
-[sub_resource type="Theme" id="Theme_xg2f8"]
-
-[node name="CalibrateScreen" type="Node2D" groups=["calibrate"]]
+[node name="CalibrateScreen" type="Control" groups=["calibrate"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
 script = ExtResource("1_l4y4x")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1.0
-offset_top = -3.0
-offset_right = 1930.0
-offset_bottom = 1092.0
-color = Color(0.303882, 0.640201, 0.639913, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fyje6")
-autoplay = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 549.0
-offset_top = 351.0
-offset_right = 1384.0
-offset_bottom = 653.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.303882, 0.640201, 0.639913, 1)
+
+[node name="VBoxContainerAll" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainerAll"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Press \"W\" or the Up arrow key on beat to calibrate audio delay"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainerAll"]
+layout_mode = 2
 theme_override_constants/separation = 42
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
 layout_mode = 2
 
-[node name="CountLabel" type="Label" parent="VBoxContainer"]
+[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
@@ -38,46 +56,54 @@ text = "0
 "
 horizontal_alignment = 1
 
-[node name="HiddenButton" type="VBoxContainer" parent="VBoxContainer"]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HiddenButton"]
+[node name="CompleteLabel" type="Label" parent="MarginContainer/VBoxContainerAll/VBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Calibration Complete!"
-
-[node name="DelayLabel" type="Label" parent="VBoxContainer/HiddenButton"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "Delay: "
-
-[node name="PlayButton" type="Button" parent="VBoxContainer/HiddenButton"]
-layout_mode = 2
-theme = SubResource("Theme_xg2f8")
-
-[node name="HiddenButton#Label" type="Label" parent="."]
-offset_left = 492.0
-offset_top = 316.0
-offset_right = 661.0
-offset_bottom = 342.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "Press \"W\" or the Up arrow key on beat to calibrate audio delay"
 horizontal_alignment = 1
 
-[node name="HiddenButton#PlayButton" type="Button" parent="."]
-offset_left = 452.0
-offset_top = 370.0
-offset_right = 703.0
-offset_bottom = 450.0
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Finish"
+text = "Manual Calibration"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/HiddenButton/PlayButton" to="." method="_on_play_button_pressed"]
+[node name="DelaySlider" type="HBoxContainer" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainerAll/VBoxContainer/DelaySlider"]
+custom_minimum_size = Vector2(400, 25)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="DelayLabel" type="Label" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Delay: "
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainerAll/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Done"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainerAll/VBoxContainer/DelaySlider/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainerAll/VBoxContainer/HBoxContainer2/Back" to="." method="_on_back_pressed"]
