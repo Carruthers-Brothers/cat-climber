@@ -67,68 +67,6 @@ autoplay = false
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("6_inbif")
 
-[node name="PawPanel" type="Panel" parent="HUD"]
-offset_left = 959.0
-offset_top = 16.0
-offset_right = 1137.0
-offset_bottom = 87.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
-
-[node name="PawPrint" type="TextureRect" parent="HUD"]
-offset_left = 975.0
-offset_top = 26.0
-offset_right = 4650.0
-offset_bottom = 1251.0
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("7_iv4ol")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="HeightPanel" type="Panel" parent="HUD"]
-offset_left = 23.0
-offset_top = 20.0
-offset_right = 221.0
-offset_bottom = 91.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
-
-[node name="Height" type="Label" parent="HUD/HeightPanel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 16.0
-offset_right = 110.0
-offset_bottom = 55.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 28
-text = "Height:"
-horizontal_alignment = 1
-
-[node name="Number" type="Label" parent="HUD/HeightPanel"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 18.0
-offset_right = 168.0
-offset_bottom = 57.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 28
-text = "####"
-horizontal_alignment = 1
-
-[node name="Panel" type="Panel" parent="HUD"]
-offset_left = 928.0
-offset_top = 852.0
-offset_right = 1141.0
-offset_bottom = 1047.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_n3e5e")
-
-[node name="Fish" type="TextureRect" parent="HUD"]
-offset_left = 209.0
-offset_top = 279.0
-offset_right = 1855.0
-offset_bottom = 1623.0
-scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(823, 672)
-texture = ExtResource("8_k8wkv")
-
 [node name="Timer" type="Timer" parent="HUD"]
 wait_time = 0.1
 one_shot = true
@@ -149,6 +87,89 @@ visible = false
 [node name="DeathTimer" type="Timer" parent="HUD/DeathMenu"]
 process_mode = 3
 wait_time = 1.5
+
+[node name="PawMargin" type="MarginContainer" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -195.0
+offset_bottom = 93.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="PawPanel" type="Panel" parent="HUD/PawMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
+
+[node name="PawPrint" type="TextureRect" parent="HUD/PawMargin/PawPanel"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 3691.0
+offset_bottom = 1237.0
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("7_iv4ol")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="FishMargin" type="MarginContainer" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -225.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="FishPanel" type="Panel" parent="HUD/FishMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n3e5e")
+
+[node name="Fish" type="TextureRect" parent="HUD/FishMargin/FishPanel"]
+offset_left = -719.0
+offset_top = -566.0
+offset_right = 927.0
+offset_bottom = 778.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(823, 672)
+texture = ExtResource("8_k8wkv")
+
+[node name="HeightMargin" type="MarginContainer" parent="HUD"]
+offset_right = 172.0
+offset_bottom = 79.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 21
+
+[node name="HeightPanel" type="Panel" parent="HUD/HeightMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
+
+[node name="Height" type="Label" parent="HUD/HeightMargin/HeightPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 112.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Height:"
+horizontal_alignment = 1
+
+[node name="Number" type="Label" parent="HUD/HeightMargin/HeightPanel"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 10.0
+offset_right = 144.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "#"
+horizontal_alignment = 1
 
 [connection signal="player_death" from="Cat" to="." method="_on_cat_player_death"]
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
