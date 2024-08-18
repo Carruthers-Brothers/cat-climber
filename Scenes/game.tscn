@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=10 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cg7noqaqme0mf" path="res://Scenes/spawner.tscn" id="5_kre34"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="7_iv4ol"]
+[ext_resource type="Texture2D" uid="uid://ciw43276t53k7" path="res://Assets/Placeholder/hud_heartFull.png" id="8_ruenr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vra"]
 bg_color = Color(0, 0, 0, 0.235294)
@@ -74,4 +75,19 @@ texture = ExtResource("7_iv4ol")
 expand_mode = 1
 stretch_mode = 1
 
+[node name="Fish" type="TextureRect" parent="HUD"]
+offset_left = 549.0
+offset_top = 554.0
+offset_right = 602.0
+offset_bottom = 599.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(26.5, 22.5)
+texture = ExtResource("8_ruenr")
+
+[node name="Timer" type="Timer" parent="HUD"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
+[connection signal="beat" from="Conductor" to="HUD" method="_on_conductor_beat"]
+[connection signal="timeout" from="HUD/Timer" to="HUD" method="_on_timer_timeout"]
