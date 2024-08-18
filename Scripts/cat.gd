@@ -39,5 +39,4 @@ func take_damage(enemy):
 		set_modulate(Color(1, 0.3, 0.3, 0.3))
 		Global.lose_life()
 		immune_to.push_back(enemy)
-		print(immune_to)
 

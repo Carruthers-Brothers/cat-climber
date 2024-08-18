@@ -58,17 +58,17 @@ autoplay = false
 script = ExtResource("6_inbif")
 
 [node name="Panel" type="Panel" parent="HUD"]
-offset_left = 889.0
-offset_top = 15.0
-offset_right = 1088.0
-offset_bottom = 86.0
+offset_left = 959.0
+offset_top = 16.0
+offset_right = 1137.0
+offset_bottom = 87.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 
 [node name="PawPrint" type="TextureRect" parent="HUD"]
-offset_left = 916.0
-offset_top = 25.0
-offset_right = 4616.0
-offset_bottom = 1250.0
+offset_left = 975.0
+offset_top = 26.0
+offset_right = 4650.0
+offset_bottom = 1251.0
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("7_iv4ol")
 expand_mode = 1
