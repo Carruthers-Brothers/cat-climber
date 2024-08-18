@@ -76,12 +76,12 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Fish" type="TextureRect" parent="HUD"]
-offset_left = 502.0
-offset_top = 522.0
-offset_right = 2148.0
-offset_bottom = 1866.0
-scale = Vector2(0.055, 0.055)
-pivot_offset = Vector2(26.5, 22.5)
+offset_left = -251.0
+offset_top = -105.0
+offset_right = 1395.0
+offset_bottom = 1239.0
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(823, 672)
 texture = ExtResource("8_k8wkv")
 
 [node name="Timer" type="Timer" parent="HUD"]
