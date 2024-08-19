@@ -53,23 +53,29 @@ position = Vector2(151, -411)
 [node name="Spawner5" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
 position = Vector2(292, -410)
 
-[node name="Spawner6" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(407, 3)
-
-[node name="Spawner7" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(407, -153)
-
 [node name="Spawner8" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
 position = Vector2(407, -303)
 
-[node name="Spawner9" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-407, 3)
-
-[node name="Spawner10" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-407, -153)
-
 [node name="Spawner11" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
 position = Vector2(-407, -303)
+
+[node name="Spawner12" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
+position = Vector2(407, -440)
+
+[node name="Spawner13" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
+position = Vector2(407, -596)
+
+[node name="Spawner14" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
+position = Vector2(407, -746)
+
+[node name="Spawner15" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
+position = Vector2(-407, -440)
+
+[node name="Spawner16" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
+position = Vector2(-407, -596)
+
+[node name="Spawner17" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
+position = Vector2(-407, -746)
 
 [node name="Conductor" parent="." instance=ExtResource("3_w8xvc")]
 autoplay = false

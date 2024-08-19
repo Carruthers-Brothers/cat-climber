@@ -15,9 +15,13 @@ func move(_beat):
 	var axis = get_axis()
 	var position_offset = get_position_offset(initial_position)
 	global_position[axis] += position_offset
+	spawn_children()
 	
 func get_axis():
 	return 'y'
 	
 func get_position_offset(initial_position):
 	return 100
+	
+func spawn_children():
+	return

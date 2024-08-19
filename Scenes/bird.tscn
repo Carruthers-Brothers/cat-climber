@@ -39,6 +39,7 @@ wait_time = 0.667
 autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_8f1on")
 autoplay = "default"

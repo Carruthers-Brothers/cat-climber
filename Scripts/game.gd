@@ -11,12 +11,14 @@ extends Node2D
 @onready var spawner_3 = $Cat/Spawners/Spawner3
 @onready var spawner_4 = $Cat/Spawners/Spawner4
 @onready var spawner_5 = $Cat/Spawners/Spawner5
-@onready var spawner_6 = $Cat/Spawners/Spawner6
-@onready var spawner_7 = $Cat/Spawners/Spawner7
 @onready var spawner_8 = $Cat/Spawners/Spawner8
-@onready var spawner_9 = $Cat/Spawners/Spawner9
-@onready var spawner_10 = $Cat/Spawners/Spawner10
 @onready var spawner_11 = $Cat/Spawners/Spawner11
+@onready var spawner_12 = $Cat/Spawners/Spawner12
+@onready var spawner_13 = $Cat/Spawners/Spawner13
+@onready var spawner_14 = $Cat/Spawners/Spawner14
+@onready var spawner_15 = $Cat/Spawners/Spawner15
+@onready var spawner_16 = $Cat/Spawners/Spawner16
+@onready var spawner_17 = $Cat/Spawners/Spawner17
 
 const CAT_DEATH = preload("res://Scenes/cat_death.tscn")
 
@@ -50,12 +52,14 @@ func _on_conductor_beat(song_position_beat):
 	spawner_4.spawn(CAN)
 	spawner_5.spawn(CAN)
 	
-	spawner_6.spawn(BIRD)
-	spawner_7.spawn(BIRD)
 	spawner_8.spawn(BIRD)
-	spawner_9.spawn(BIRD)
-	spawner_10.spawn(BIRD)
 	spawner_11.spawn(BIRD)
+	spawner_12.spawn(BIRD)
+	spawner_13.spawn(BIRD)
+	spawner_14.spawn(BIRD)
+	spawner_15.spawn(BIRD)
+	spawner_16.spawn(BIRD)
+	spawner_17.spawn(BIRD)
 
 
 func _on_cat_player_death():
