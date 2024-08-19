@@ -4,8 +4,9 @@ extends CharacterBody2D
 @onready var game = get_tree().get_first_node_in_group("game")
 @onready var hit_sound = $HitSound
 
+var grid_position = Vector2(3, 1) # (x,y) bottom left building square is (1,1)
 
-const SPEED = 140
+const SPEED = 240
 
 var time_since_last_beat = 0.0 
 var walk1 = true
@@ -34,12 +35,13 @@ func move(direction):
 		elif direction.y == 1:
 			Global.height -= 1
 			
-		# print(direction)
-		# print('direction')
-		# print(direction.x)
+		grid_position += Vector2(direction.x, -direction.y)
+		grid_position.x = clamp(grid_position.x, 1, 5)
+		print("grid position is ", grid_position)
 		position += direction * SPEED
-		var clamped_position_x = clamp(global_position.x, -280, 280) # make sure it is within bounds of skyscraper
+		var clamped_position_x = clamp(global_position.x, -480, 480) # make sure it is within bounds of skyscraper
 		global_position.x = clamped_position_x
+		print("global position x is", global_position.x)
 		if walk1:
 			animated_sprite_2d.play("walk2")
 			walk1 = false

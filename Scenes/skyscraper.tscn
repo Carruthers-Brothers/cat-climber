@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwfkka2dh812l"]
+
+[ext_resource type="Script" path="res://Scripts/skyscraper.gd" id="1_5dj4q"]
+[ext_resource type="Texture2D" uid="uid://3v7knddi7jt2" path="res://Assets/Bottom_Building_No_Street.png" id="2_gi1eh"]
+
+[node name="Skyscraper" type="Node2D"]
+position = Vector2(0, -1200)
+script = ExtResource("1_5dj4q")
+
+[node name="BottomBuilding" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_gi1eh")

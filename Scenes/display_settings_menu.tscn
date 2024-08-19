@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv2hwpyfd6txe"]
 
-[ext_resource type="Script" path="res://display_settings_menu.gd" id="1_jxam0"]
+[ext_resource type="Script" path="res://Scripts/display_settings_menu.gd" id="1_jxam0"]
 
 [sub_resource type="SystemFont" id="SystemFont_pxvll"]
 font_names = PackedStringArray("Impact")

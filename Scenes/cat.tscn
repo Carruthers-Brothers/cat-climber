@@ -36,14 +36,16 @@ collision_mask = 2
 script = ExtResource("1_faf3o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, -222)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-11, -6)
+position = Vector2(8, -6)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_mpj8l")
 animation = &"walk1"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(16, 1)
 polygon = PackedVector2Array(-28, -74, -50, -56, -38, -30, -30, -8, -39, 13, -34, 42, -18, 50, -17, 114, -13, 49, 1, 41, 7, 15, -3, -20, 13, -37, 11, -59, -11, -76)
 
 [node name="Timer" type="Timer" parent="."]

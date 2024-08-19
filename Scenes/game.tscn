@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
-[ext_resource type="Texture2D" uid="uid://dobmuc5l6wxy3" path="res://Assets/Placeholder/skyscraper.png" id="2_vnm3r"]
+[ext_resource type="PackedScene" uid="uid://cwfkka2dh812l" path="res://Scenes/skyscraper.tscn" id="2_080vm"]
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
 [ext_resource type="PackedScene" uid="uid://cg7noqaqme0mf" path="res://Scenes/spawner.tscn" id="5_kre34"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
@@ -30,18 +30,10 @@ script = ExtResource("1_e3cyq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-
-[node name="SkyscraperLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-motion_mirroring = Vector2(0, 1584)
-
-[node name="Skyscraper" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/SkyscraperLayer"]
-position = Vector2(-400, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("2_vnm3r")
-centered = false
+[node name="Skyscraper" parent="." instance=ExtResource("2_080vm")]
 
 [node name="Cat" parent="." instance=ExtResource("1_ovk3c")]
+position = Vector2(-4, -135)
 
 [node name="Spawners" type="Node2D" parent="Cat"]
 position = Vector2(1, -100)
@@ -71,23 +63,6 @@ script = ExtResource("6_inbif")
 wait_time = 0.1
 one_shot = true
 
-[node name="PauseMenu" parent="HUD" instance=ExtResource("9_y7qa2")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="DeathMenu" parent="HUD" instance=ExtResource("10_axuc2")]
-visible = false
-
-[node name="DeathTimer" type="Timer" parent="HUD/DeathMenu"]
-process_mode = 3
-wait_time = 1.5
-
 [node name="PawMargin" type="MarginContainer" parent="HUD"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -104,6 +79,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 
 [node name="PawPrint" type="TextureRect" parent="HUD/PawMargin/PawPanel"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 12.0
 offset_right = 3691.0
@@ -131,6 +107,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_n3e5e")
 
 [node name="Fish" type="TextureRect" parent="HUD/FishMargin/FishPanel"]
+layout_mode = 0
 offset_left = -719.0
 offset_top = -566.0
 offset_right = 927.0
@@ -170,6 +147,23 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
 text = "#"
 horizontal_alignment = 1
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("9_y7qa2")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="DeathMenu" parent="HUD" instance=ExtResource("10_axuc2")]
+visible = false
+
+[node name="DeathTimer" type="Timer" parent="HUD/DeathMenu"]
+process_mode = 3
+wait_time = 1.5
 
 [connection signal="player_death" from="Cat" to="." method="_on_cat_player_death"]
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
