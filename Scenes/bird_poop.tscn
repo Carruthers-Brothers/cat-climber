@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0iokpbkltvvg"]
+[gd_scene load_steps=3 format=3 uid="uid://pl4oqum6bjv"]
 
 [ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_67p4c"]
-[ext_resource type="Texture2D" uid="uid://ciw43276t53k7" path="res://Assets/Placeholder/hud_heartFull.png" id="2_3xqs5"]
+[ext_resource type="Texture2D" uid="uid://dewq18idbxy7u" path="res://Assets/birdPoop2.png" id="2_lfj1p"]
 
 [node name="BirdPoop" type="Node2D"]
 script = ExtResource("1_67p4c")
@@ -10,14 +10,15 @@ script = ExtResource("1_67p4c")
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-42, 13, -54, -27, 2, -39, 33, -40, 28, 33, 14, 45, -14, 42)
+polygon = PackedVector2Array(-9, 3, -7, -13, 5, -16, 7, -3, 9, 16, 1, 17, -6, 11)
 
 [node name="DropTimer" type="Timer" parent="."]
 wait_time = 0.667
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3xqs5")
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_lfj1p")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
