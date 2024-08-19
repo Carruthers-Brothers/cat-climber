@@ -6,6 +6,7 @@ func _ready():
 	initial_position = self.position
 	var conductor = get_tree().get_first_node_in_group("music")
 	conductor.beat.connect(move)
+	on_ready(initial_position)
 
 func _on_area_2d_body_entered(body):
 	if body.get_collision_layer() == 1:
@@ -24,4 +25,7 @@ func get_position_offset(initial_position):
 	return 100
 	
 func spawn_children():
+	return
+
+func on_ready(initial_position):
 	return
