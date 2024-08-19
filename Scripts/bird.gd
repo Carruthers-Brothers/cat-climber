@@ -6,6 +6,7 @@ extends "res://Scripts/projectile.gd"
 const SPAWNER = preload("res://Scenes/spawner.tscn")
 const CAN = preload("res://Scenes/projectile.tscn")
 const BIRD_POOP = preload("res://Scenes/bird_poop.tscn")
+const EGG = preload("res://Scenes/egg.tscn")
 
 func get_axis():
 	return 'x'
@@ -19,6 +20,7 @@ func spawn_children():
 	var new_spawner = SPAWNER.instantiate()
 	add_child(new_spawner)
 	new_spawner.spawn(BIRD_POOP)
+	new_spawner.spawn(EGG)
 	
 func on_ready(initial_position):
 	if initial_position.x < 0:
