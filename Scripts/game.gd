@@ -11,8 +11,17 @@ extends Node2D
 @onready var spawner_3 = $Cat/Spawners/Spawner3
 @onready var spawner_4 = $Cat/Spawners/Spawner4
 @onready var spawner_5 = $Cat/Spawners/Spawner5
+@onready var spawner_6 = $Cat/Spawners/Spawner6
+@onready var spawner_7 = $Cat/Spawners/Spawner7
+@onready var spawner_8 = $Cat/Spawners/Spawner8
+@onready var spawner_9 = $Cat/Spawners/Spawner9
+@onready var spawner_10 = $Cat/Spawners/Spawner10
+@onready var spawner_11 = $Cat/Spawners/Spawner11
 
 const CAT_DEATH = preload("res://Scenes/cat_death.tscn")
+
+const CAN = preload("res://Scenes/projectile.tscn")
+const BIRD = preload("res://Scenes/bird.tscn")
 
 var delay = 0.0
 
@@ -35,11 +44,18 @@ func _process(delta):
 
 
 func _on_conductor_beat(song_position_beat):
-	spawner_1.spawn()
-	spawner_2.spawn()
-	spawner_3.spawn()
-	spawner_4.spawn()
-	spawner_5.spawn()
+	spawner_1.spawn(CAN)
+	spawner_2.spawn(CAN)
+	spawner_3.spawn(CAN)
+	spawner_4.spawn(CAN)
+	spawner_5.spawn(CAN)
+	
+	spawner_6.spawn(BIRD)
+	spawner_7.spawn(BIRD)
+	spawner_8.spawn(BIRD)
+	spawner_9.spawn(BIRD)
+	spawner_10.spawn(BIRD)
+	spawner_11.spawn(BIRD)
 
 
 func _on_cat_player_death():
