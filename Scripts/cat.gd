@@ -1,30 +1,45 @@
 extends CharacterBody2D
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var game = get_tree().get_first_node_in_group("game")
+@onready var spawner = get_tree().get_first_node_in_group("spawner")
+@onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var hit_sound = $HitSound
+@onready var on_screen = $OnScreen
+
+@onready var up = $Up
+@onready var right = $Right
+@onready var down = $Down
+@onready var left = $Left
+
 
 var grid_position = Vector2(3, 1) # (x,y) bottom left building square is (1,1)
-
-const SPEED = 240
-
 var time_since_last_beat = 0.0 
 var walk1 = true
 var is_immune = false
 
 signal player_death()
 
+
 func _physics_process(delta):
-	
 	if Input.is_action_just_pressed("up"):
-		move(Vector2(0, -1))
+		var collide_up = up.get_overlapping_areas()
+		if collide_up.size() == 0:
+			move(Vector2(0, -1))
+			spawner.position += Vector2(0, -1) * Global.GRID_SIZE
 	elif Input.is_action_just_pressed("down"):
-		if Global.height > 0:
-			move(Vector2(0, 1))
+		var collide_down = down.get_overlapping_areas()
+		if collide_down.size() == 0:
+			if Global.height > 0:
+				move(Vector2(0, 1))
+				spawner.position += Vector2(0, 1) * Global.GRID_SIZE
 	elif Input.is_action_just_pressed("left"):
-		move(Vector2(-1, 0))
+		var collide_left = left.get_overlapping_areas()
+		if collide_left.size() == 0:
+			move(Vector2(-1, 0))
 	elif Input.is_action_just_pressed("right"):
-		move(Vector2(1, 0))
+		var collide_right = right.get_overlapping_areas()
+		if collide_right.size() == 0:
+			move(Vector2(1, 0))
 
 
 func move(direction):
@@ -37,18 +52,17 @@ func move(direction):
 			
 		grid_position += Vector2(direction.x, -direction.y)
 		grid_position.x = clamp(grid_position.x, 1, 5)
-		print("grid position is ", grid_position)
-		position += direction * SPEED
+		position += direction * Global.GRID_SIZE
 		var clamped_position_x = clamp(global_position.x, -480, 480) # make sure it is within bounds of skyscraper
 		global_position.x = clamped_position_x
-		print("global position x is", global_position.x)
 		if walk1:
 			animated_sprite_2d.play("walk2")
 			walk1 = false
 		else:
 			animated_sprite_2d.play("walk1")
 			walk1 = true
-			
+
+
 func take_damage(enemy):
 	if is_immune == false:
 		hit_sound.play()
@@ -63,6 +77,13 @@ func take_damage(enemy):
 		
 		$Timer.start()
 
+
 func _on_timer_timeout():
 	set_modulate(Color(1, 1, 1, 1))
 	is_immune = false
+
+
+func _on_on_screen_screen_exited(): # player dies if too far behind
+	Global.lives = 3
+	Global.height = 0
+	emit_signal("player_death")

@@ -1,6 +1,8 @@
 extends Node2D
 
 var initial_position
+var axis = 'y'
+var direction = Vector2(0,1)
 
 func _ready():
 	initial_position = self.position
@@ -15,14 +17,14 @@ func _on_area_2d_body_entered(body):
 func move(_beat):
 	var axis = get_axis()
 	var position_offset = get_position_offset(initial_position)
-	global_position[axis] += position_offset
+	global_position += direction * Global.GRID_SIZE
 	spawn_children()
 	
 func get_axis():
-	return 'y'
+	return axis
 	
 func get_position_offset(initial_position):
-	return 100
+	return Global.GRID_SIZE
 	
 func spawn_children():
 	return

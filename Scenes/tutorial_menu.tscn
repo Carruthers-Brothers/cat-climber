@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq3my1ly33vl3"]
+
+[ext_resource type="Script" path="res://Scripts/tutorial_menu.gd" id="1_nhbnk"]
+[ext_resource type="Texture2D" uid="uid://gew832q0scof" path="res://Assets/arrow_keys.png" id="1_wu828"]
+[ext_resource type="Texture2D" uid="uid://d31fxf374g2y2" path="res://Assets/wasd_keys.png" id="2_26t2r"]
+[ext_resource type="PackedScene" uid="uid://bv128c5ohqcd0" path="res://Scenes/calibrate_screen.tscn" id="2_iin75"]
+
+[sub_resource type="SystemFont" id="SystemFont_y8c6f"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[node name="TutorialMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nhbnk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.303882, 0.640201, 0.639913, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_y8c6f")
+theme_override_font_sizes/font_size = 64
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Move using WASD or the arrow keys, but only press on the beat of the music! 
+If you press a key off beat, you won't move."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "
+
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+position = Vector2(1086, -25)
+texture = ExtResource("1_wu828")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+position = Vector2(844, -17)
+texture = ExtResource("2_26t2r")
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "
+"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Dodge falling projectiles to make it to the top. 
+And don't get caught by the bottom of the screen!"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "You can calibrate the audio / input delay below, 
+or anytime in the Settings menu"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Calibrate" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Calibrate"
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Continue"
+
+[node name="CalibrateScreen" parent="." instance=ExtResource("2_iin75")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Calibrate" to="." method="_on_calibrate_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Continue" to="." method="_on_continue_pressed"]

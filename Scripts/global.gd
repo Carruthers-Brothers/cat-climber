@@ -1,5 +1,7 @@
 extends Node
 
+const GRID_SIZE = 240
+
 var hud
 
 var delay = 0.0 # global variable to save delay time we found from calibration

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccxvvldipp0tu"]
+[gd_scene load_steps=8 format=3 uid="uid://ccxvvldipp0tu"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_yl3ek"]
 [ext_resource type="PackedScene" uid="uid://dpart8foac1vt" path="res://Scenes/settings_menu.tscn" id="2_xnmmh"]
+[ext_resource type="PackedScene" uid="uid://bq3my1ly33vl3" path="res://Scenes/tutorial_menu.tscn" id="3_wgafv"]
 
 [sub_resource type="SystemFont" id="SystemFont_6w3ro"]
 font_names = PackedStringArray("Impact")
@@ -92,6 +93,10 @@ text = "Quit"
 [node name="SettingsMenu" parent="MarginContainer" instance=ExtResource("2_xnmmh")]
 visible = false
 layout_mode = 2
+
+[node name="TutorialMenu" parent="." instance=ExtResource("3_wgafv")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons/Settings" to="." method="_on_settings_pressed"]

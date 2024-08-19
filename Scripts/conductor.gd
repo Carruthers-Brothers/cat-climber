@@ -15,7 +15,7 @@ var delay_amount = 0.0
 signal beat(song_position_beat)
 
 func _ready():
-	conductor.play() 
+	play() 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,3 +36,10 @@ func report_beat(): # will just report beat once when it gets there
 		time_since_last_beat = 0.0
 		emit_signal("beat", song_position_beats)
 		
+
+
+func _on_finished():
+	song_position_sec = 0.0 # reset so it works
+	song_position_beats = 1
+	last_beat = 0
+	play() # immediately loop / play

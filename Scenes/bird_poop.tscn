@@ -1,7 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://pl4oqum6bjv"]
+[gd_scene load_steps=14 format=3 uid="uid://b0h7pl8g5kjbm"]
 
 [ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_67p4c"]
-[ext_resource type="Texture2D" uid="uid://dewq18idbxy7u" path="res://Assets/birdPoop2.png" id="2_lfj1p"]
+[ext_resource type="Texture2D" uid="uid://dopbak65lv6lx" path="res://Assets/poop_animation.png" id="3_3dbr8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr63n"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(0, 0, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta1x3"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(200, 0, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lldk"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(400, 0, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pycji"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(600, 0, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mngkx"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(800, 0, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyk0g"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(0, 375, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yofxh"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(200, 375, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp8w4"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(400, 375, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr4jd"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(600, 375, 200, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmxb5"]
+atlas = ExtResource("3_3dbr8")
+region = Rect2(800, 375, 200, 375)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tut3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr63n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta1x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lldk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pycji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mngkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyk0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yofxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp8w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr4jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmxb5")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 20.0
+}]
 
 [node name="BirdPoop" type="Node2D"]
 script = ExtResource("1_67p4c")
@@ -10,15 +88,19 @@ script = ExtResource("1_67p4c")
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-9, 3, -7, -13, 5, -16, 7, -3, 9, 16, 1, 17, -6, 11)
+polygon = PackedVector2Array(-8, 3, -5, -6, 1, -7, 6, -2, 6, 8, 1, 12, -6, 11)
 
 [node name="DropTimer" type="Timer" parent="."]
 wait_time = 0.667
 autostart = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("2_lfj1p")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -11)
+scale = Vector2(0.166875, 0.166875)
+sprite_frames = SubResource("SpriteFrames_tut3o")
+animation = &"fall"
+autoplay = "fall"
+frame_progress = 0.611735
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

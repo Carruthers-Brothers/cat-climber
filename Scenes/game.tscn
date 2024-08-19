@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=14 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
 [ext_resource type="PackedScene" uid="uid://cwfkka2dh812l" path="res://Scenes/skyscraper.tscn" id="2_080vm"]
+[ext_resource type="PackedScene" uid="uid://dl35u4rxyja2q" path="res://Scenes/spawn_manager.tscn" id="3_od7p5"]
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
-[ext_resource type="PackedScene" uid="uid://cg7noqaqme0mf" path="res://Scenes/spawner.tscn" id="5_kre34"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="7_iv4ol"]
 [ext_resource type="Texture2D" uid="uid://bbuipvn4xvq3b" path="res://Assets/fish1.png" id="8_k8wkv"]
 [ext_resource type="PackedScene" uid="uid://6gv7plikau5m" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
 [ext_resource type="PackedScene" uid="uid://cocdk5tq1pjb7" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
+[ext_resource type="PackedScene" uid="uid://drdg6sbtwnrvr" path="res://Scenes/worker.tscn" id="11_b2k7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vra"]
 bg_color = Color(0, 0, 0, 0.235294)
@@ -28,54 +29,53 @@ corner_radius_bottom_left = 100
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_e3cyq")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -328)
+zoom = Vector2(0.5, 0.5)
 
 [node name="Skyscraper" parent="." instance=ExtResource("2_080vm")]
 
+[node name="SpawnManager" parent="." instance=ExtResource("3_od7p5")]
+position = Vector2(-3, -1193)
+
+[node name="Workers" parent="SpawnManager" index="0"]
+position = Vector2(-240, -3)
+
+[node name="WorkerSpawn1" parent="SpawnManager/Workers" index="0"]
+position = Vector2(-358, -965)
+
+[node name="WorkerSpawn3" parent="SpawnManager/Workers" index="2"]
+position = Vector2(116, -965)
+
+[node name="Birds" parent="SpawnManager" index="1"]
+position = Vector2(-8, 0)
+
+[node name="BirdSpawn1" parent="SpawnManager/Birds" index="0"]
+position = Vector2(-1197, -860)
+
+[node name="BirdSpawn2" parent="SpawnManager/Birds" index="1"]
+position = Vector2(-1202, -621)
+
+[node name="BirdSpawn3" parent="SpawnManager/Birds" index="2"]
+position = Vector2(-1193, -374)
+
+[node name="BirdSpawn4" parent="SpawnManager/Birds" index="3"]
+position = Vector2(1216, -842)
+
+[node name="BirdSpawn5" parent="SpawnManager/Birds" index="4"]
+position = Vector2(1218, -617)
+
+[node name="BirdSpawn6" parent="SpawnManager/Birds" index="5"]
+position = Vector2(1223, -360)
+
+[node name="Other" parent="SpawnManager" index="2"]
+position = Vector2(0, -481)
+
 [node name="Cat" parent="." instance=ExtResource("1_ovk3c")]
 position = Vector2(-4, -135)
-
-[node name="Spawners" type="Node2D" parent="Cat"]
-position = Vector2(1, -100)
-
-[node name="Spawner1" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-313, -405)
-
-[node name="Spawner2" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-153, -407)
-
-[node name="Spawner3" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-3, -407)
-
-[node name="Spawner4" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(151, -411)
-
-[node name="Spawner5" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(292, -410)
-
-[node name="Spawner8" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(407, -303)
-
-[node name="Spawner11" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-407, -303)
-
-[node name="Spawner12" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(407, -440)
-
-[node name="Spawner13" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(407, -596)
-
-[node name="Spawner14" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(407, -746)
-
-[node name="Spawner15" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-407, -440)
-
-[node name="Spawner16" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-407, -596)
-
-[node name="Spawner17" parent="Cat/Spawners" instance=ExtResource("5_kre34")]
-position = Vector2(-407, -746)
 
 [node name="Conductor" parent="." instance=ExtResource("3_w8xvc")]
 autoplay = false
@@ -189,8 +189,13 @@ visible = false
 process_mode = 3
 wait_time = 1.5
 
+[node name="Worker" parent="." instance=ExtResource("11_b2k7h")]
+position = Vector2(-595, -962)
+
 [connection signal="player_death" from="Cat" to="." method="_on_cat_player_death"]
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
 [connection signal="beat" from="Conductor" to="HUD" method="_on_conductor_beat"]
 [connection signal="timeout" from="HUD/Timer" to="HUD" method="_on_timer_timeout"]
 [connection signal="timeout" from="HUD/DeathMenu/DeathTimer" to="." method="_on_death_timer_timeout"]
+
+[editable path="SpawnManager"]

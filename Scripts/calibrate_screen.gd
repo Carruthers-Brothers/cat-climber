@@ -16,20 +16,26 @@ var average_delay = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var time_into_song = audio_stream_player.get_playback_position() + AudioServer.get_time_since_last_mix() # gets our current position in song (seconds)
-	time_into_song -= AudioServer.get_output_latency() # account for audio latency
-	last_beat_time = time_into_song - (int(floor(time_into_song / sec_per_beat)) * sec_per_beat)
-	if Input.is_action_just_pressed("up"):
-		var current_delay = last_beat_time
-		press_count += 1
-		count_label.text = str(press_count)
-		total_delay += current_delay
-		average_delay = total_delay / press_count
-		delay_label.text = "Delay: " + str(snapped(average_delay, 0.001)) + "s"
-		if press_count >= 15:
-			Global.delay = average_delay
-			complete_label.show()
-
+	
+	if visible and not audio_stream_player.playing:
+		audio_stream_player.play()
+	elif not visible:
+		audio_stream_player.stop()
+		press_count = 0
+	else:
+		var time_into_song = audio_stream_player.get_playback_position() + AudioServer.get_time_since_last_mix() # gets our current position in song (seconds)
+		time_into_song -= AudioServer.get_output_latency() # account for audio latency
+		last_beat_time = time_into_song - (int(floor(time_into_song / sec_per_beat)) * sec_per_beat)
+		if Input.is_action_just_pressed("up"):
+			var current_delay = last_beat_time
+			press_count += 1
+			count_label.text = str(press_count)
+			total_delay += current_delay
+			average_delay = total_delay / press_count
+			delay_label.text = "Delay: " + str(snapped(average_delay, 0.001)) + "s"
+			if press_count >= 15:
+				Global.delay = average_delay
+				complete_label.show()
 
 
 func _on_h_slider_value_changed(value):

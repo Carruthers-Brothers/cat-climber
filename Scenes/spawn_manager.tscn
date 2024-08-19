@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl35u4rxyja2q"]
+
+[ext_resource type="PackedScene" uid="uid://cg7noqaqme0mf" path="res://Scenes/spawner.tscn" id="1_5sqhk"]
+[ext_resource type="Script" path="res://Scripts/spawn_manager.gd" id="1_ns2hy"]
+
+[node name="SpawnManager" type="Node2D" groups=["spawner"]]
+position = Vector2(-3, -235)
+script = ExtResource("1_ns2hy")
+
+[node name="Workers" type="Node2D" parent="."]
+
+[node name="WorkerSpawn1" parent="Workers" instance=ExtResource("1_5sqhk")]
+position = Vector2(-368, -965)
+
+[node name="WorkersSpawn2" parent="Workers" instance=ExtResource("1_5sqhk")]
+position = Vector2(-125, -965)
+
+[node name="WorkerSpawn3" parent="Workers" instance=ExtResource("1_5sqhk")]
+position = Vector2(132, -965)
+
+[node name="WorkerSpawn4" parent="Workers" instance=ExtResource("1_5sqhk")]
+position = Vector2(371, -966)
+
+[node name="Birds" type="Node2D" parent="."]
+
+[node name="BirdSpawn1" parent="Birds" instance=ExtResource("1_5sqhk")]
+position = Vector2(-699, -846)
+
+[node name="BirdSpawn2" parent="Birds" instance=ExtResource("1_5sqhk")]
+position = Vector2(-704, -607)
+
+[node name="BirdSpawn3" parent="Birds" instance=ExtResource("1_5sqhk")]
+position = Vector2(-695, -360)
+
+[node name="BirdSpawn4" parent="Birds" instance=ExtResource("1_5sqhk")]
+position = Vector2(715, -842)
+
+[node name="BirdSpawn5" parent="Birds" instance=ExtResource("1_5sqhk")]
+position = Vector2(707, -620)
+
+[node name="BirdSpawn6" parent="Birds" instance=ExtResource("1_5sqhk")]
+position = Vector2(712, -364)
+
+[node name="Other" type="Node2D" parent="."]
+
+[node name="OtherSpawn1" parent="Other" instance=ExtResource("1_5sqhk")]
+position = Vector2(-479, -602)
+
+[node name="OtherSpawn2" parent="Other" instance=ExtResource("1_5sqhk")]
+position = Vector2(-248, -602)
+
+[node name="OtherSpawn3" parent="Other" instance=ExtResource("1_5sqhk")]
+position = Vector2(4, -607)
+
+[node name="OtherSpawn4" parent="Other" instance=ExtResource("1_5sqhk")]
+position = Vector2(255, -609)
+
+[node name="OtherSpawn5" parent="Other" groups=["spawner"] instance=ExtResource("1_5sqhk")]
+position = Vector2(481, -610)

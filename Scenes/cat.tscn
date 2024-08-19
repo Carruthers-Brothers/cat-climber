@@ -31,11 +31,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Cat" type="CharacterBody2D"]
+[node name="Cat" type="CharacterBody2D" groups=["cat"]]
 collision_mask = 2
 script = ExtResource("1_faf3o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(-3, -222)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -46,7 +47,46 @@ animation = &"walk1"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(16, 1)
-polygon = PackedVector2Array(-28, -74, -50, -56, -38, -30, -30, -8, -39, 13, -34, 42, -18, 50, -17, 114, -13, 49, 1, 41, 7, 15, -3, -20, 13, -37, 11, -59, -11, -76)
+polygon = PackedVector2Array(-29, -74, -46, -55, -38, -30, -25, -20, -39, 13, -34, 42, -18, 50, -15, 50, -13, 49, 1, 41, 7, 15, -3, -20, 13, -37, 11, -59, -9, -74)
+
+[node name="Up" type="Area2D" parent="."]
+position = Vector2(16, 1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="UpCollision" type="CollisionPolygon2D" parent="Up"]
+polygon = PackedVector2Array(-22, -77, -19, -249, -15, -79)
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2(16, 1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="RightCollision" type="CollisionPolygon2D" parent="Right"]
+position = Vector2(-67, 18)
+rotation = 1.57277
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-22, -77, -19.5101, -258.962, -16.1274, -106.81, -15, -79)
+
+[node name="Down" type="Area2D" parent="."]
+position = Vector2(16, 1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="DownCollision" type="CollisionPolygon2D" parent="Down"]
+position = Vector2(-32, -33)
+rotation = -3.12521
+polygon = PackedVector2Array(-22, -77, -18.3727, -266.735, -15, -79)
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(16, 1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="LeftCollision" type="CollisionPolygon2D" parent="Left"]
+position = Vector2(50, -16)
+rotation = -1.5514
+polygon = PackedVector2Array(-22, -77, -20.7778, -297.653, -16.0307, -104.423, -15, -79)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -54,4 +94,7 @@ wait_time = 2.0
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_30ngj")
 
+[node name="OnScreen" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="OnScreen" to="." method="_on_on_screen_screen_exited"]
