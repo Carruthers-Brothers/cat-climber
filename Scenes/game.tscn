@@ -181,7 +181,7 @@ position = Vector2(339, 100)
 position = Vector2(139, 100)
 
 [node name="HeightMargin" type="MarginContainer" parent="HUD"]
-offset_right = 179.0
+offset_right = 259.0
 offset_bottom = 79.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 21
@@ -190,7 +190,7 @@ theme_override_constants/margin_top = 21
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 
-[node name="Height" type="Label" parent="HUD/HeightMargin/HeightPanel"]
+[node name="Label" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 4.0
@@ -202,11 +202,35 @@ theme_override_font_sizes/font_size = 40
 text = "Height:"
 horizontal_alignment = 1
 
-[node name="Number" type="Label" parent="HUD/HeightMargin/HeightPanel"]
+[node name="CurrentHeight" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
 offset_left = 108.0
 offset_top = 4.0
 offset_right = 144.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_heqx0")
+theme_override_font_sizes/font_size = 40
+text = "###"
+horizontal_alignment = 1
+
+[node name="OutOf" type="Label" parent="HUD/HeightMargin/HeightPanel"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 3.0
+offset_right = 178.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_heqx0")
+theme_override_font_sizes/font_size = 40
+text = "/"
+horizontal_alignment = 1
+
+[node name="MaxHeight" type="Label" parent="HUD/HeightMargin/HeightPanel"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 4.0
+offset_right = 215.0
 offset_bottom = 50.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_heqx0")

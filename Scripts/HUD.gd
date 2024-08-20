@@ -5,10 +5,11 @@ const RHYTHM_BAR = preload("res://Scenes/rhythm_bar.tscn")
 func _ready():
 	Global.hud = self
 	load_hearts()
-	$HeightMargin/HeightPanel/Number.text = str(Global.height)
+	$HeightMargin/HeightPanel/CurrentHeight.text = str(Global.height)
+	$HeightMargin/HeightPanel/MaxHeight.text = str(Global.max_height)
 	
 func _process(delta):
-	$HeightMargin/HeightPanel/Number.text = str(Global.height)
+	$HeightMargin/HeightPanel/CurrentHeight.text = str(Global.height)
 	
 func load_hearts():
 	$PawMargin/PawPanel/PawPrint.size.x = Global.lives * 1218
@@ -25,8 +26,6 @@ func _on_conductor_beat(song_position_beat):
 	var new_rhythm_bar_right = RHYTHM_BAR.instantiate()
 	new_rhythm_bar_right.position = Vector2(1939, 100)
 	new_rhythm_bar_right.target = $FishMargin/BottomScreenPanel/Fish
-	#new_rhythm_bar_right.scale.x = 0.1
-	#new_rhythm_bar_right.scale.y = 0.1
 	$FishMargin/BottomScreenPanel.add_child(new_rhythm_bar_right)
 	
 	$Timer.start()

@@ -27,7 +27,7 @@ func _ready():
 
 func _process(delta):
 	cat.time_since_last_beat = conductor.time_since_last_beat
-	if Global.height >= 121:
+	if Global.height > Global.max_height:
 		print("you win the game!") # animation / win screen 
 	camera.global_position.y -= delta * CAMERA_SPEED # scrolling instead of moving with player
 	
