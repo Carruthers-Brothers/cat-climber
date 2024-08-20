@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cn3gh6om1mtiy"]
 
 [ext_resource type="Script" path="res://Scripts/rhythm_bar.gd" id="1_gntjh"]
-[ext_resource type="Texture2D" uid="uid://ciw43276t53k7" path="res://Assets/Placeholder/hud_heartFull.png" id="2_45y1m"]
+[ext_resource type="Texture2D" uid="uid://clfua8kxfgap5" path="res://Assets/BEATbar1.png" id="2_bedtd"]
 
 [node name="RhythmBar" type="Node2D"]
 script = ExtResource("1_gntjh")
@@ -15,8 +15,8 @@ polygon = PackedVector2Array(-4, 0, -4, -3, 0, -3, 4, -3, 4, 0, 0, 4, 0, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.90735e-06, -1)
-scale = Vector2(1, 0.82)
-texture = ExtResource("2_45y1m")
+scale = Vector2(0.049, 0.04)
+texture = ExtResource("2_bedtd")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

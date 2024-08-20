@@ -1,18 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=16 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
-[ext_resource type="PackedScene" uid="uid://cwfkka2dh812l" path="res://Scenes/skyscraper.tscn" id="2_080vm"]
-[ext_resource type="PackedScene" uid="uid://dl35u4rxyja2q" path="res://Scenes/spawn_manager.tscn" id="3_od7p5"]
+[ext_resource type="PackedScene" path="res://Scenes/skyscraper.tscn" id="2_080vm"]
+[ext_resource type="PackedScene" path="res://Scenes/spawn_manager.tscn" id="3_od7p5"]
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="7_iv4ol"]
-[ext_resource type="PackedScene" uid="uid://b0s7n8bfye78t" path="res://Scenes/fish.tscn" id="8_tf8vb"]
+[ext_resource type="PackedScene" path="res://Scenes/poop_screen.tscn" id="7_pomrw"]
+[ext_resource type="PackedScene" path="res://Scenes/fish.tscn" id="8_tf8vb"]
 [ext_resource type="PackedScene" uid="uid://cn3gh6om1mtiy" path="res://Scenes/rhythm_bar.tscn" id="9_uoccg"]
-[ext_resource type="PackedScene" uid="uid://bhhmfffijg52s" path="res://Scenes/poop_screen.tscn" id="7_pomrw"]
-[ext_resource type="PackedScene" uid="uid://6gv7plikau5m" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
-[ext_resource type="PackedScene" uid="uid://cocdk5tq1pjb7" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
-[ext_resource type="PackedScene" uid="uid://drdg6sbtwnrvr" path="res://Scenes/worker.tscn" id="11_b2k7h"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
+[ext_resource type="PackedScene" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
+[ext_resource type="PackedScene" path="res://Scenes/worker.tscn" id="11_b2k7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vra"]
 bg_color = Color(0, 0, 0, 0.235294)
@@ -32,15 +32,7 @@ corner_radius_bottom_left = 100
 script = ExtResource("1_e3cyq")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-editor_description = ""
 visible = false
-script = null
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, -121)
