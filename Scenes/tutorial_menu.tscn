@@ -97,7 +97,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_ooqg7")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 40
 text = "Move using WASD or the arrow keys, but only press on the beat of the music! 
 If you press a key off beat, you won't move."
 horizontal_alignment = 1

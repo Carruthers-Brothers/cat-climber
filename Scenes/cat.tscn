@@ -92,6 +92,7 @@ wait_time = 2.0
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_30ngj")
+volume_db = 4.0
 
 [node name="OnScreen" type="VisibleOnScreenNotifier2D" parent="."]
 

@@ -34,11 +34,6 @@ func _process(delta):
 			skyscraper.add_child(building_sprite)
 			prev_building_position = building_sprite.global_position
 			top = true
-			var water_sprite = Sprite2D.new()
-			water_sprite.texture = GLASS_OF_WATER
-			# scale change?
-			water_sprite.global_position = Vector2(building_sprite.global_position.x - 530, building_sprite.global_position.y - 1264)
-			skyscraper.add_child(water_sprite)
 		else:
 			if Global.height % 10 == 3 or Global.height < 10: # based on building height of 10, spawn before we can see next
 				if building_count < (Global.height / 10) + 2:

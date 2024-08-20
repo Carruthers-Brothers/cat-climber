@@ -14,7 +14,7 @@ const CAT_DEATH = preload("res://Scenes/cat_death.tscn")
 const CAN = preload("res://Scenes/can.tscn")
 const BIRD = preload("res://Scenes/bird.tscn")
 
-const CAMERA_SPEED = 275
+const CAMERA_SPEED = 250
 
 var delay = 0.0
 var game_end = false

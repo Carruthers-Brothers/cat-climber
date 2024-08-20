@@ -39,7 +39,7 @@ func _ready():
 
 
 func spawn():
-	if Global.height < 110:
+	if Global.height < 105:
 		# scale spawn probability based on Global.height
 		var random_num = randi_range(0,99)
 		if random_num < 5: # make sure not spawning multiple on same spot ever since it doesn't move

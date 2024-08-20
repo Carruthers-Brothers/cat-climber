@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=20 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
@@ -22,6 +22,8 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+expand_margin_left = 5.0
+expand_margin_right = 200.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bga8w"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 0.690196)
@@ -45,17 +47,6 @@ offset_top = -32216.0
 offset_right = 4375.0
 offset_bottom = 2862.0
 color = Color(0.770303, 0.898768, 0.975435, 1)
-
-[node name="Parallax2D" type="Parallax2D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-editor_description = ""
-visible = false
-script = null
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(12, 1078)
@@ -205,10 +196,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 
 [node name="Label" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 4.0
-offset_right = 109.0
-offset_bottom = 50.0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 144.0
+offset_bottom = 54.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_be62j")
 theme_override_font_sizes/font_size = 40
@@ -217,10 +208,10 @@ horizontal_alignment = 1
 
 [node name="CurrentHeight" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
-offset_left = 108.0
-offset_top = 4.0
-offset_right = 144.0
-offset_bottom = 50.0
+offset_left = 184.0
+offset_top = 1.0
+offset_right = 262.0
+offset_bottom = 56.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_heqx0")
 theme_override_font_sizes/font_size = 40
@@ -229,10 +220,9 @@ horizontal_alignment = 1
 
 [node name="OutOf" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
-offset_left = 153.0
-offset_top = 3.0
-offset_right = 178.0
-offset_bottom = 49.0
+offset_left = 279.0
+offset_right = 304.0
+offset_bottom = 55.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_heqx0")
 theme_override_font_sizes/font_size = 40
@@ -241,10 +231,10 @@ horizontal_alignment = 1
 
 [node name="MaxHeight" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
-offset_left = 179.0
-offset_top = 4.0
-offset_right = 215.0
-offset_bottom = 50.0
+offset_left = 323.0
+offset_top = 1.0
+offset_right = 401.0
+offset_bottom = 56.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_heqx0")
 theme_override_font_sizes/font_size = 40
