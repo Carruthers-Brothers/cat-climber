@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="7_iv4ol"]
+[ext_resource type="PackedScene" uid="uid://b0s7n8bfye78t" path="res://Scenes/fish.tscn" id="8_tf8vb"]
+[ext_resource type="PackedScene" uid="uid://cn3gh6om1mtiy" path="res://Scenes/rhythm_bar.tscn" id="9_uoccg"]
 [ext_resource type="PackedScene" uid="uid://bhhmfffijg52s" path="res://Scenes/poop_screen.tscn" id="7_pomrw"]
-[ext_resource type="Texture2D" uid="uid://bbuipvn4xvq3b" path="res://Assets/fish1.png" id="8_k8wkv"]
 [ext_resource type="PackedScene" uid="uid://6gv7plikau5m" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
 [ext_resource type="PackedScene" uid="uid://cocdk5tq1pjb7" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
 [ext_resource type="PackedScene" uid="uid://drdg6sbtwnrvr" path="res://Scenes/worker.tscn" id="11_b2k7h"]
@@ -20,7 +21,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3e5e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bga8w"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 0.690196)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
@@ -31,7 +32,15 @@ corner_radius_bottom_left = 100
 script = ExtResource("1_e3cyq")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
 visible = false
+script = null
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, -121)
@@ -120,26 +129,50 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -225.0
+offset_left = -1918.0
 offset_top = -225.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="FishPanel" type="Panel" parent="HUD/FishMargin"]
+[node name="BottomScreenPanel" type="Panel" parent="HUD/FishMargin"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_n3e5e")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bga8w")
 
-[node name="Fish" type="TextureRect" parent="HUD/FishMargin/FishPanel"]
-layout_mode = 0
-offset_left = -719.0
-offset_top = -566.0
-offset_right = 927.0
-offset_bottom = 778.0
-scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(823, 672)
-texture = ExtResource("8_k8wkv")
+[node name="Fish" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("8_tf8vb")]
+position = Vector2(939, 105)
+
+[node name="RhythmBar1" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(-61, 100)
+
+[node name="RhythmBar13" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(1339, 100)
+
+[node name="RhythmBar12" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(1139, 100)
+
+[node name="RhythmBar14" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(1539, 100)
+
+[node name="RhythmBar9" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(1739, 100)
+
+[node name="RhythmBar10" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(1939, 100)
+
+[node name="RhythmBar11" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(739, 100)
+
+[node name="RhythmBar8" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(539, 100)
+
+[node name="RhythmBar6" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(339, 100)
+
+[node name="RhythmBar7" parent="HUD/FishMargin/BottomScreenPanel" instance=ExtResource("9_uoccg")]
+position = Vector2(139, 100)
 
 [node name="HeightMargin" type="MarginContainer" parent="HUD"]
 offset_right = 172.0
