@@ -9,6 +9,8 @@ var volume = 75
 
 var max_lives = 3
 var lives = max_lives
+
+var max_height = 120
 var height = 1
 
 func lose_life():

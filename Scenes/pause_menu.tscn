@@ -1,11 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://6gv7plikau5m"]
+[gd_scene load_steps=13 format=3 uid="uid://6gv7plikau5m"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_6eav6"]
 [ext_resource type="PackedScene" uid="uid://dpart8foac1vt" path="res://Scenes/settings_menu.tscn" id="2_m52rh"]
+[ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="3_ef5mx"]
 
 [sub_resource type="SystemFont" id="SystemFont_y8c6f"]
-font_names = PackedStringArray("Impact")
+font_names = PackedStringArray("Inkpen2 Script Std")
 subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_08ypk"]
+
+[sub_resource type="SystemFont" id="SystemFont_e5gno"]
+font_names = PackedStringArray("Inkpen2 Script Std")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5k68"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_bottom = 4.0
+
+[sub_resource type="SystemFont" id="SystemFont_tyq15"]
+font_names = PackedStringArray("Inkpen2 Script Std")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmrpd"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_bottom = 4.0
+
+[sub_resource type="SystemFont" id="SystemFont_fgsib"]
+font_names = PackedStringArray("Inkpen2 Script Std")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5u5k"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ngn36"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -38,7 +91,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_y8c6f")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 120
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -57,8 +110,11 @@ alignment = 1
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
+theme = SubResource("Theme_08ypk")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = SubResource("SystemFont_e5gno")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_c5k68")
 text = "Resume"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -66,7 +122,9 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = SubResource("SystemFont_tyq15")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmrpd")
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -74,12 +132,113 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = SubResource("SystemFont_fgsib")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_d5u5k")
 text = "Quit"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_m52rh")]
 visible = false
 layout_mode = 1
+
+[node name="PawMargin" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 199.0
+offset_bottom = 201.0
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="Panel2" type="Panel" parent="PawMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ngn36")
+
+[node name="TextureRect" type="TextureRect" parent="PawMargin/Panel2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1216.0
+offset_bottom = 1194.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ef5mx")
+
+[node name="PawMargin4" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -201.0
+offset_right = 199.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel2" type="Panel" parent="PawMargin4"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ngn36")
+
+[node name="TextureRect" type="TextureRect" parent="PawMargin4/Panel2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1216.0
+offset_bottom = 1194.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ef5mx")
+
+[node name="PawMargin3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -201.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel2" type="Panel" parent="PawMargin3"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ngn36")
+
+[node name="TextureRect" type="TextureRect" parent="PawMargin3/Panel2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1216.0
+offset_bottom = 1194.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ef5mx")
+
+[node name="PawMargin2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -199.0
+offset_bottom = 201.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="Panel2" type="Panel" parent="PawMargin2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ngn36")
+
+[node name="TextureRect" type="TextureRect" parent="PawMargin2/Panel2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1216.0
+offset_bottom = 1194.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ef5mx")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

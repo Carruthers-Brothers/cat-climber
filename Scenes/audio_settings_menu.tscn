@@ -1,10 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://frq2x56putw5"]
+[gd_scene load_steps=10 format=3 uid="uid://frq2x56putw5"]
 
 [ext_resource type="Script" path="res://Scripts/audio_settings_menu.gd" id="1_igpkq"]
 [ext_resource type="AudioStream" uid="uid://b1h5ib1c84xwk" path="res://Assets/Music/game_jam_song.mp3" id="2_odu8b"]
+[ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="3_s8bk2"]
+
+[sub_resource type="Theme" id="Theme_7nr2n"]
 
 [sub_resource type="SystemFont" id="SystemFont_pxvll"]
-font_names = PackedStringArray("Impact")
+font_names = PackedStringArray("Inkpen2 Script Std")
+
+[sub_resource type="SystemFont" id="SystemFont_fuuj3"]
+font_names = PackedStringArray("Inkpen2 Script Std")
+
+[sub_resource type="SystemFont" id="SystemFont_mcrs7"]
+font_names = PackedStringArray("Inkpen2 Script Std")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdmef"]
+content_margin_left = 5.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3wser"]
 
 [node name="AudioSettingsMenu" type="Control" groups=["calibrate"]]
 layout_mode = 3
@@ -30,20 +57,21 @@ color = Color(0.303882, 0.640201, 0.639913, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 48
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_7nr2n")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_pxvll")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 120
 text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 42
+theme_override_constants/separation = 64
 alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -52,14 +80,17 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(400, 25)
+custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.0
 value = 100.0
 
 [node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = SubResource("SystemFont_fuuj3")
+theme_override_font_sizes/font_size = 50
 text = "100%"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -69,12 +100,121 @@ alignment = 1
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_mcrs7")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_sdmef")
 text = "Back"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_odu8b")
+
+[node name="PawMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 199.0
+offset_bottom = 201.0
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="Panel2" type="Panel" parent="PawMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3wser")
+
+[node name="TextureRect" type="TextureRect" parent="PawMargin/Panel2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1216.0
+offset_bottom = 1194.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_s8bk2")
+
+[node name="PawMargin4" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -201.0
+offset_right = 199.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel2" type="Panel" parent="PawMargin4"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3wser")
+
+[node name="TextureRect" type="TextureRect" parent="PawMargin4/Panel2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1216.0
+offset_bottom = 1194.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_s8bk2")
+
+[node name="PawMargin3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -201.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel2" type="Panel" parent="PawMargin3"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3wser")
+
+[node name="TextureRect" type="TextureRect" parent="PawMargin3/Panel2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1216.0
+offset_bottom = 1194.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_s8bk2")
+
+[node name="PawMargin2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -199.0
+offset_bottom = 201.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="Panel2" type="Panel" parent="PawMargin2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3wser")
+
+[node name="TextureRect" type="TextureRect" parent="PawMargin2/Panel2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 1216.0
+offset_bottom = 1194.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_s8bk2")
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
