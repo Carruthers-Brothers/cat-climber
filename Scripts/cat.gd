@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 func move(direction):
 	var adjusted_time = time_since_last_beat - game.delay # adjusted delay found at beginning
-	if time_since_last_beat < 0.06 or time_since_last_beat > 0.6: # grace period of .06 early / late
+	if time_since_last_beat < 0.1 or time_since_last_beat > 0.6: # grace period of .06 early / late
 		if direction.y == -1:
 			Global.height += 1
 		elif direction.y == 1:
