@@ -1,14 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cocdk5tq1pjb7"]
+[gd_scene load_steps=7 format=3 uid="uid://cocdk5tq1pjb7"]
 
 [ext_resource type="Script" path="res://Scripts/death_menu.gd" id="1_vy6yq"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_hbpu6"]
 [ext_resource type="PackedScene" uid="uid://dpart8foac1vt" path="res://Scenes/settings_menu.tscn" id="2_pb64e"]
-
-[sub_resource type="SystemFont" id="SystemFont_y8c6f"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_u7jhl"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvauk"]
 bg_color = Color(0, 0, 0, 1)
@@ -22,9 +16,6 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
 
-[sub_resource type="SystemFont" id="SystemFont_b5drg"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o12dg"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 4
@@ -36,9 +27,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
-
-[sub_resource type="SystemFont" id="SystemFont_6cv21"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dew4e"]
 bg_color = Color(0, 0, 0, 1)
@@ -83,7 +71,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_y8c6f")
+theme_override_fonts/font = ExtResource("2_hbpu6")
 theme_override_font_sizes/font_size = 120
 text = "You died!"
 horizontal_alignment = 1
@@ -103,8 +91,8 @@ alignment = 1
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_fonts/font = SubResource("SystemFont_u7jhl")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_hbpu6")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_fvauk")
 text = "Restart"
 
@@ -112,8 +100,8 @@ text = "Restart"
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_fonts/font = SubResource("SystemFont_b5drg")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_hbpu6")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_o12dg")
 text = "Settings"
 
@@ -121,8 +109,8 @@ text = "Settings"
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_fonts/font = SubResource("SystemFont_6cv21")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_hbpu6")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_dew4e")
 text = "Quit"
 

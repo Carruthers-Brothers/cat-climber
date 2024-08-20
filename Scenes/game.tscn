@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=19 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cn3gh6om1mtiy" path="res://Scenes/rhythm_bar.tscn" id="9_uoccg"]
 [ext_resource type="PackedScene" uid="uid://6gv7plikau5m" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
 [ext_resource type="PackedScene" uid="uid://cocdk5tq1pjb7" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="11_67grr"]
 [ext_resource type="PackedScene" uid="uid://drdg6sbtwnrvr" path="res://Scenes/worker.tscn" id="11_b2k7h"]
-[ext_resource type="FontFile" uid="uid://bu0mrwiy736q4" path="res://Assets/Fonts/Inkpen2 Script Regular.ttf" id="11_hley3"]
 [ext_resource type="PackedScene" uid="uid://6c63pin0dlob" path="res://Scenes/win_screen.tscn" id="13_ea8lw"]
 [ext_resource type="PackedScene" uid="uid://8j2knoni0ajn" path="res://Scenes/win_animation.tscn" id="15_u3wai"]
 
@@ -32,9 +32,6 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-
-[sub_resource type="SystemFont" id="SystemFont_heqx0"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_e3cyq")
@@ -194,12 +191,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 
 [node name="Label" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 30.0
-offset_right = 139.0
-offset_bottom = 66.0
+offset_left = 17.0
+offset_top = -3.0
+offset_right = 157.0
+offset_bottom = 55.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("11_hley3")
+theme_override_fonts/font = ExtResource("11_67grr")
 theme_override_font_sizes/font_size = 40
 text = "Height:"
 horizontal_alignment = 1
@@ -211,7 +208,7 @@ offset_top = 1.0
 offset_right = 262.0
 offset_bottom = 56.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_heqx0")
+theme_override_fonts/font = ExtResource("11_67grr")
 theme_override_font_sizes/font_size = 40
 text = "###"
 horizontal_alignment = 1
@@ -222,7 +219,7 @@ offset_left = 279.0
 offset_right = 304.0
 offset_bottom = 55.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_heqx0")
+theme_override_fonts/font = ExtResource("11_67grr")
 theme_override_font_sizes/font_size = 40
 text = "/"
 horizontal_alignment = 1
@@ -234,7 +231,7 @@ offset_top = 1.0
 offset_right = 401.0
 offset_bottom = 56.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_heqx0")
+theme_override_fonts/font = ExtResource("11_67grr")
 theme_override_font_sizes/font_size = 40
 text = "###"
 horizontal_alignment = 1
