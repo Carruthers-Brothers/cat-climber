@@ -1,18 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=18 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
-[ext_resource type="PackedScene" path="res://Scenes/skyscraper.tscn" id="2_080vm"]
-[ext_resource type="PackedScene" path="res://Scenes/spawn_manager.tscn" id="3_od7p5"]
+[ext_resource type="PackedScene" uid="uid://cwfkka2dh812l" path="res://Scenes/skyscraper.tscn" id="2_080vm"]
+[ext_resource type="PackedScene" uid="uid://dl35u4rxyja2q" path="res://Scenes/spawn_manager.tscn" id="3_od7p5"]
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="7_iv4ol"]
-[ext_resource type="PackedScene" path="res://Scenes/poop_screen.tscn" id="7_pomrw"]
-[ext_resource type="PackedScene" path="res://Scenes/fish.tscn" id="8_tf8vb"]
+[ext_resource type="PackedScene" uid="uid://bhhmfffijg52s" path="res://Scenes/poop_screen.tscn" id="7_pomrw"]
+[ext_resource type="PackedScene" uid="uid://b0s7n8bfye78t" path="res://Scenes/fish.tscn" id="8_tf8vb"]
 [ext_resource type="PackedScene" uid="uid://cn3gh6om1mtiy" path="res://Scenes/rhythm_bar.tscn" id="9_uoccg"]
-[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
-[ext_resource type="PackedScene" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
-[ext_resource type="PackedScene" path="res://Scenes/worker.tscn" id="11_b2k7h"]
+[ext_resource type="PackedScene" uid="uid://6gv7plikau5m" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
+[ext_resource type="PackedScene" uid="uid://cocdk5tq1pjb7" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
+[ext_resource type="PackedScene" uid="uid://drdg6sbtwnrvr" path="res://Scenes/worker.tscn" id="11_b2k7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vra"]
 bg_color = Color(0, 0, 0, 0.235294)
@@ -28,11 +28,25 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
+[sub_resource type="SystemFont" id="SystemFont_be62j"]
+font_names = PackedStringArray("Inkpen2 Script Std")
+
+[sub_resource type="SystemFont" id="SystemFont_heqx0"]
+font_names = PackedStringArray("Inkpen2 Script Std")
+
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_e3cyq")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
 visible = false
+script = null
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, -121)
@@ -167,7 +181,7 @@ position = Vector2(339, 100)
 position = Vector2(139, 100)
 
 [node name="HeightMargin" type="MarginContainer" parent="HUD"]
-offset_right = 172.0
+offset_right = 179.0
 offset_bottom = 79.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 21
@@ -178,24 +192,26 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 
 [node name="Height" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 9.0
-offset_right = 112.0
-offset_bottom = 48.0
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 109.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = SubResource("SystemFont_be62j")
+theme_override_font_sizes/font_size = 40
 text = "Height:"
 horizontal_alignment = 1
 
 [node name="Number" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 10.0
+offset_left = 108.0
+offset_top = 4.0
 offset_right = 144.0
-offset_bottom = 49.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 28
-text = "#"
+theme_override_fonts/font = SubResource("SystemFont_heqx0")
+theme_override_font_sizes/font_size = 40
+text = "###"
 horizontal_alignment = 1
 
 [node name="PoopScreen" parent="HUD" groups=["poop"] instance=ExtResource("7_pomrw")]
