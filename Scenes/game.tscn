@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=21 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://drdg6sbtwnrvr" path="res://Scenes/worker.tscn" id="11_b2k7h"]
 [ext_resource type="PackedScene" uid="uid://6c63pin0dlob" path="res://Scenes/win_screen.tscn" id="13_ea8lw"]
 [ext_resource type="PackedScene" uid="uid://8j2knoni0ajn" path="res://Scenes/win_animation.tscn" id="15_u3wai"]
+[ext_resource type="Texture2D" uid="uid://ceqj4cvtersot" path="res://Assets/foreground.png" id="17_xmh4r"]
+[ext_resource type="Texture2D" uid="uid://cj47807ycn7xm" path="res://Assets/Sky background.png" id="18_jhf1e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2vra"]
 bg_color = Color(0, 0, 0, 0.235294)
@@ -36,15 +38,8 @@ corner_radius_bottom_left = 100
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_e3cyq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -4308.0
-offset_top = -32216.0
-offset_right = 4375.0
-offset_bottom = 2862.0
-color = Color(0.770303, 0.898768, 0.975435, 1)
-
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(12, 1078)
+position = Vector2(12, 620)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Skyscraper" parent="." instance=ExtResource("2_080vm")]
@@ -265,6 +260,25 @@ wait_time = 1.5
 [node name="WinAnimation" parent="." instance=ExtResource("15_u3wai")]
 visible = false
 position = Vector2(0, -27600)
+
+[node name="Foreground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(13, -160)
+scale = Vector2(1.09835, 1.09835)
+texture = ExtResource("17_xmh4r")
+
+[node name="SkyBackground" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(59, -15500)
+scale = Vector2(2.10864, 2.10864)
+texture = ExtResource("18_jhf1e")
+
+[node name="SkyBackground2" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-75, -43434)
+rotation = -3.14066
+scale = Vector2(1.84186, 1.84186)
+texture = ExtResource("18_jhf1e")
 
 [connection signal="player_death" from="Cat" to="." method="_on_cat_player_death"]
 [connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
