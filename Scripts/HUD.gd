@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const RHYTHM_BAR = preload("res://Scenes/rhythm_bar.tscn")
+
 func _ready():
 	Global.hud = self
 	load_hearts()
@@ -12,11 +14,23 @@ func load_hearts():
 	$PawMargin/PawPanel/PawPrint.size.x = Global.lives * 1218
 
 func _on_conductor_beat(song_position_beat):
-	$FishMargin/FishPanel/Fish.scale.x = $FishMargin/FishPanel/Fish.scale.x * 1.1
-	$FishMargin/FishPanel/Fish.scale.y = $FishMargin/FishPanel/Fish.scale.y * 1.1
+	$FishMargin/BottomScreenPanel/Fish.scale.x = $FishMargin/BottomScreenPanel/Fish.scale.x * 1.1
+	$FishMargin/BottomScreenPanel/Fish.scale.y = $FishMargin/BottomScreenPanel/Fish.scale.y * 1.1
+	
+	var new_rhythm_bar_left = RHYTHM_BAR.instantiate()
+	new_rhythm_bar_left.position = Vector2(-61, 100)
+	new_rhythm_bar_left.target = $FishMargin/BottomScreenPanel/Fish
+	$FishMargin/BottomScreenPanel.add_child(new_rhythm_bar_left)
+	
+	var new_rhythm_bar_right = RHYTHM_BAR.instantiate()
+	new_rhythm_bar_right.position = Vector2(1939, 100)
+	new_rhythm_bar_right.target = $FishMargin/BottomScreenPanel/Fish
+	#new_rhythm_bar_right.scale.x = 0.1
+	#new_rhythm_bar_right.scale.y = 0.1
+	$FishMargin/BottomScreenPanel.add_child(new_rhythm_bar_right)
 	
 	$Timer.start()
 	
 func _on_timer_timeout():
-	$FishMargin/FishPanel/Fish.scale.x = $FishMargin/FishPanel/Fish.scale.x / 1.1
-	$FishMargin/FishPanel/Fish.scale.y = $FishMargin/FishPanel/Fish.scale.y / 1.1
+	$FishMargin/BottomScreenPanel/Fish.scale.x = $FishMargin/BottomScreenPanel/Fish.scale.x / 1.1
+	$FishMargin/BottomScreenPanel/Fish.scale.y = $FishMargin/BottomScreenPanel/Fish.scale.y / 1.1

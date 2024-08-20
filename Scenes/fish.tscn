@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0s7n8bfye78t"]
+
+[ext_resource type="Texture2D" uid="uid://bbuipvn4xvq3b" path="res://Assets/fish1.png" id="2_in2tp"]
+
+[node name="Fish" type="Node2D"]
+z_index = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-4, 0, -4, -3, 0, -3, 4, -3, 4, 0, 0, 4, 0, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.122, 0.1)
+texture = ExtResource("2_in2tp")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
