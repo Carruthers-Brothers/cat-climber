@@ -1,32 +1,32 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgtokr7qmydy2"]
 
 [ext_resource type="Script" path="res://Scripts/cat.gd" id="1_faf3o"]
-[ext_resource type="Texture2D" uid="uid://dkbbsybgw6jx7" path="res://Assets/cat_spritesheet.png" id="2_ftbpi"]
+[ext_resource type="Texture2D" uid="uid://bcu74kg274ewf" path="res://Assets/Cat_Animation.png" id="2_6i21s"]
 [ext_resource type="AudioStream" uid="uid://c01y371tt7khi" path="res://Assets/Music/short-meow-hit.mp3" id="3_30ngj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cdvjs"]
-atlas = ExtResource("2_ftbpi")
-region = Rect2(0, 0, 490, 636)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yynpd"]
-atlas = ExtResource("2_ftbpi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvac8"]
+atlas = ExtResource("2_6i21s")
 region = Rect2(490, 0, 490, 636)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl3a3"]
+atlas = ExtResource("2_6i21s")
+region = Rect2(0, 0, 490, 636)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mpj8l"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cdvjs")
+"texture": SubResource("AtlasTexture_kvac8")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk1",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yynpd")
+"texture": SubResource("AtlasTexture_hl3a3")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk2",
 "speed": 5.0
 }]

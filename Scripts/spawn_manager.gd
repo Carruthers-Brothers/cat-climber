@@ -48,13 +48,13 @@ func spawn():
 			new_worker.global_position = random_worker.global_position
 			game.add_child(new_worker)
 		random_num = randi_range(0,99)
-		if random_num < 15:
+		if random_num < 12: # 15 percent
 			var random_bird = bird_spawns.pick_random()
 			var new_bird = BIRD.instantiate()
 			new_bird.global_position = random_bird.global_position
 			game.add_child(new_bird)
 		random_num = randi_range(0,99)
-		if random_num < 15:
+		if random_num < 12: # 15 percent
 			var random_other = other_spawns.pick_random()
 			var new_projectile = PROJECTILE.instantiate()
 			new_projectile.global_position = random_other.global_position 

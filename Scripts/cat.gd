@@ -84,6 +84,7 @@ func _on_timer_timeout():
 
 
 func _on_on_screen_screen_exited(): # player dies if too far behind
-	Global.lives = 3
-	Global.height = 0
-	emit_signal("player_death")
+	if visible: # don't kill when it gets to top not shown
+		Global.lives = 3
+		Global.height = 0
+		emit_signal("player_death")

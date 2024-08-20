@@ -17,4 +17,4 @@ func _process(delta):
 
 func _on_timer_timeout():
 	visible = false
-	splatter.modulate.a = 255
+	splatter.modulate.a = 1

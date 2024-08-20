@@ -30,6 +30,7 @@ texture = ExtResource("2_i1cij")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="SplatSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_m4auy")

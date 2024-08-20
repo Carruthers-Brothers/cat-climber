@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7kvyueelmnhf"]
+
+[ext_resource type="Texture2D" uid="uid://cv7sbfk4a2vrk" path="res://Assets/Building_top_No_background.png" id="1_wimnu"]
+[ext_resource type="Texture2D" uid="uid://vetn501xq6hk" path="res://Assets/Glass_of_Water.png" id="2_oe85p"]
+
+[node name="TopBuilding" type="Sprite2D"]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_wimnu")
+
+[node name="GlassOfWater" type="Sprite2D" parent="." groups=["water"]]
+position = Vector2(-449, -62)
+texture = ExtResource("2_oe85p")

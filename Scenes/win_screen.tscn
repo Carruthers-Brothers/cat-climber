@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://6c63pin0dlob"]
+
+[ext_resource type="Texture2D" uid="uid://bmu43hs7xhfdv" path="res://Assets/smudgeTheCat.png" id="3_31kqr"]
+
+[sub_resource type="SystemFont" id="SystemFont_6t57c"]
+font_names = PackedStringArray("Impact")
+
+[node name="WinScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Win" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Win"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.462745, 1, 0.615686, 0.54902)
+
+[node name="Sprite2D" type="Sprite2D" parent="Win"]
+position = Vector2(980, 598)
+scale = Vector2(0.267742, 0.267742)
+texture = ExtResource("3_31kqr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Win"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 600
+alignment = 1
+
+[node name="Label" type="Label" parent="Win/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_6t57c")
+theme_override_font_sizes/font_size = 64
+text = "Congratulations!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Win/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_6t57c")
+theme_override_font_sizes/font_size = 64
+text = "Thanks for playing!"
+horizontal_alignment = 1

@@ -6,15 +6,18 @@ extends Node2D
 @onready var death_timer = $HUD/DeathMenu/DeathTimer
 @onready var camera = $Camera
 @onready var spawn_manager = $SpawnManager
+@onready var win_screen = $HUD/WinScreen
+@onready var win_animation = $WinAnimation
 
 const CAT_DEATH = preload("res://Scenes/cat_death.tscn")
 
 const CAN = preload("res://Scenes/can.tscn")
 const BIRD = preload("res://Scenes/bird.tscn")
 
-const CAMERA_SPEED = 250
+const CAMERA_SPEED = 275
 
 var delay = 0.0
+var game_end = false
 
 
 func _ready():
@@ -27,10 +30,11 @@ func _ready():
 
 func _process(delta):
 	cat.time_since_last_beat = conductor.time_since_last_beat
-	if Global.height >= 121:
-		print("you win the game!") # animation / win screen 
-	camera.global_position.y -= delta * CAMERA_SPEED # scrolling instead of moving with player
-	
+	if not game_end:
+		if Global.height >= 121: 
+			game_end = true
+			game_over()
+		camera.global_position.y -= delta * CAMERA_SPEED # scrolling instead of moving with player
 
 
 func _on_conductor_beat(song_position_beat):
@@ -49,3 +53,15 @@ func _on_cat_player_death():
 
 func _on_death_timer_timeout():
 	death_menu.show()
+	
+
+func game_over():
+	cat.hide()
+	win_animation.show()
+	win_animation.play("default")
+
+
+func _on_win_animation_animation_finished():
+	# print("finished win animation")
+	win_animation.hide()
+	win_screen.show()
