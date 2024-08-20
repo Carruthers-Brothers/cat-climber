@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhhmfffijg52s"]
+
+[ext_resource type="Script" path="res://Scripts/poop_screen.gd" id="1_r4idx"]
+[ext_resource type="Texture2D" uid="uid://x2yr24pkdoth" path="res://Assets/bird-splatter.png" id="2_i1cij"]
+[ext_resource type="AudioStream" uid="uid://d4gh1v0jxsn7g" path="res://Assets/Music/splat.mp3" id="3_m4auy"]
+
+[node name="PoopScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4idx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Splatter" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(957, 539)
+scale = Vector2(1.13364, 1.13364)
+texture = ExtResource("2_i1cij")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="SplatSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_m4auy")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

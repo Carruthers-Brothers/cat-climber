@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://gmgo7r2wlrsa"]
+[gd_scene load_steps=15 format=3 uid="uid://gmgo7r2wlrsa"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e3cyq"]
 [ext_resource type="PackedScene" uid="uid://bgtokr7qmydy2" path="res://Scenes/cat.tscn" id="1_ovk3c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://mycwh58lhply" path="res://Scenes/conductor.tscn" id="3_w8xvc"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="6_inbif"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="7_iv4ol"]
+[ext_resource type="PackedScene" uid="uid://bhhmfffijg52s" path="res://Scenes/poop_screen.tscn" id="7_pomrw"]
 [ext_resource type="Texture2D" uid="uid://bbuipvn4xvq3b" path="res://Assets/fish1.png" id="8_k8wkv"]
 [ext_resource type="PackedScene" uid="uid://6gv7plikau5m" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
 [ext_resource type="PackedScene" uid="uid://cocdk5tq1pjb7" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
@@ -33,7 +34,7 @@ script = ExtResource("1_e3cyq")
 visible = false
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(0, -328)
+position = Vector2(0, -121)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Skyscraper" parent="." instance=ExtResource("2_080vm")]
@@ -171,6 +172,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
 text = "#"
 horizontal_alignment = 1
+
+[node name="PoopScreen" parent="HUD" groups=["poop"] instance=ExtResource("7_pomrw")]
+visible = false
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource("9_y7qa2")]
 visible = false

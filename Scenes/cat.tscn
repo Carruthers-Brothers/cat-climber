@@ -65,7 +65,6 @@ collision_mask = 4
 [node name="RightCollision" type="CollisionPolygon2D" parent="Right"]
 position = Vector2(-67, 18)
 rotation = 1.57277
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-22, -77, -19.5101, -258.962, -16.1274, -106.81, -15, -79)
 
 [node name="Down" type="Area2D" parent="."]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2ksgqmxhcklx"]
+[gd_scene load_steps=3 format=3 uid="uid://dsg5r7tewb877"]
 
-[ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_kka7i"]
+[ext_resource type="Script" path="res://Scripts/bird_poop.gd" id="1_30tcl"]
 [ext_resource type="Texture2D" uid="uid://bb32g7vkbgxir" path="res://Assets/birdEgg1.png" id="2_8jrlw"]
 
-[node name="BirdPoop" type="Node2D"]
-script = ExtResource("1_kka7i")
+[node name="Egg" type="Node2D"]
+script = ExtResource("1_30tcl")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
