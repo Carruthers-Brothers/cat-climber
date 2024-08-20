@@ -1,12 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv2hwpyfd6txe"]
+[gd_scene load_steps=5 format=3 uid="uid://dv2hwpyfd6txe"]
 
 [ext_resource type="Script" path="res://Scripts/display_settings_menu.gd" id="1_jxam0"]
-
-[sub_resource type="SystemFont" id="SystemFont_pxvll"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="SystemFont" id="SystemFont_dy5s4"]
-font_names = PackedStringArray("Inkpen2 Script Std")
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_ch7gh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l350w"]
 bg_color = Color(1, 1, 1, 1)
@@ -20,9 +15,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
-
-[sub_resource type="SystemFont" id="SystemFont_rcy8l"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8q4kr"]
 bg_color = Color(1, 1, 1, 1)
@@ -67,7 +59,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_pxvll")
+theme_override_fonts/font = ExtResource("2_ch7gh")
 theme_override_font_sizes/font_size = 120
 text = "Screen Resolution"
 horizontal_alignment = 1
@@ -88,8 +80,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_constants/arrow_margin = 8
-theme_override_fonts/font = SubResource("SystemFont_dy5s4")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_ch7gh")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_l350w")
 item_count = 8
 popup/item_0/text = "1920x1080"
@@ -117,8 +109,8 @@ alignment = 1
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_rcy8l")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_ch7gh")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_8q4kr")
 text = "Back"
 

@@ -1,17 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://6gv7plikau5m"]
+[gd_scene load_steps=10 format=3 uid="uid://6gv7plikau5m"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_6eav6"]
 [ext_resource type="PackedScene" uid="uid://dpart8foac1vt" path="res://Scenes/settings_menu.tscn" id="2_m52rh"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_qa1x3"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="3_ef5mx"]
 
-[sub_resource type="SystemFont" id="SystemFont_y8c6f"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
-
 [sub_resource type="Theme" id="Theme_08ypk"]
-
-[sub_resource type="SystemFont" id="SystemFont_e5gno"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5k68"]
 bg_color = Color(1, 1, 1, 1)
@@ -26,9 +20,6 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
 
-[sub_resource type="SystemFont" id="SystemFont_tyq15"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmrpd"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 4
@@ -41,9 +32,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
-
-[sub_resource type="SystemFont" id="SystemFont_fgsib"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d5u5k"]
 bg_color = Color(1, 1, 1, 1)
@@ -90,7 +78,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_y8c6f")
+theme_override_fonts/font = ExtResource("2_qa1x3")
 theme_override_font_sizes/font_size = 120
 text = "Paused"
 horizontal_alignment = 1
@@ -112,8 +100,8 @@ layout_mode = 2
 size_flags_vertical = 4
 theme = SubResource("Theme_08ypk")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_e5gno")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_qa1x3")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_c5k68")
 text = "Resume"
 
@@ -122,8 +110,8 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_tyq15")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_qa1x3")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_cmrpd")
 text = "Settings"
 
@@ -132,8 +120,8 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_fgsib")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_qa1x3")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_d5u5k")
 text = "Quit"
 

@@ -1,26 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv128c5ohqcd0"]
+[gd_scene load_steps=7 format=3 uid="uid://bv128c5ohqcd0"]
 
 [ext_resource type="Script" path="res://Scripts/calibrate_screen.gd" id="1_l4y4x"]
 [ext_resource type="AudioStream" uid="uid://b3utff8eced5" path="res://Assets/Music/game_jam_song_drums.mp3" id="2_fyje6"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="3_q7c06"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="3_ruj8y"]
-
-[sub_resource type="SystemFont" id="SystemFont_tg47c"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="SystemFont" id="SystemFont_5v84c"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="SystemFont" id="SystemFont_xbw7o"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="SystemFont" id="SystemFont_qe8g0"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="SystemFont" id="SystemFont_tdrpj"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="SystemFont" id="SystemFont_v56vj"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amomm"]
 bg_color = Color(1, 1, 1, 1)
@@ -70,7 +53,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainerAll"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_tg47c")
+theme_override_fonts/font = ExtResource("3_q7c06")
 theme_override_font_sizes/font_size = 56
 text = "Press \"W\" or the Up arrow key on beat
 to calibrate audio delay"
@@ -87,7 +70,7 @@ layout_mode = 2
 [node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_5v84c")
+theme_override_fonts/font = ExtResource("3_q7c06")
 theme_override_font_sizes/font_size = 120
 text = "0
 "
@@ -103,7 +86,7 @@ alignment = 1
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_xbw7o")
+theme_override_fonts/font = ExtResource("3_q7c06")
 theme_override_font_sizes/font_size = 40
 text = "Calibration Complete!"
 horizontal_alignment = 1
@@ -111,7 +94,7 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_qe8g0")
+theme_override_fonts/font = ExtResource("3_q7c06")
 theme_override_font_sizes/font_size = 40
 text = "Manual Calibration"
 horizontal_alignment = 1
@@ -129,7 +112,7 @@ step = 0.01
 [node name="DelayLabel" type="Label" parent="MarginContainer/VBoxContainerAll/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_tdrpj")
+theme_override_fonts/font = ExtResource("3_q7c06")
 theme_override_font_sizes/font_size = 40
 text = "Delay: "
 horizontal_alignment = 1
@@ -142,7 +125,7 @@ alignment = 1
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_v56vj")
+theme_override_fonts/font = ExtResource("3_q7c06")
 theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxFlat_amomm")
 text = "Done"

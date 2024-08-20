@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6gv7plikau5m" path="res://Scenes/pause_menu.tscn" id="9_y7qa2"]
 [ext_resource type="PackedScene" uid="uid://cocdk5tq1pjb7" path="res://Scenes/death_menu.tscn" id="10_axuc2"]
 [ext_resource type="PackedScene" uid="uid://drdg6sbtwnrvr" path="res://Scenes/worker.tscn" id="11_b2k7h"]
+[ext_resource type="FontFile" uid="uid://bu0mrwiy736q4" path="res://Assets/Fonts/Inkpen2 Script Regular.ttf" id="11_hley3"]
 [ext_resource type="PackedScene" uid="uid://6c63pin0dlob" path="res://Scenes/win_screen.tscn" id="13_ea8lw"]
 [ext_resource type="PackedScene" uid="uid://8j2knoni0ajn" path="res://Scenes/win_animation.tscn" id="15_u3wai"]
 
@@ -31,9 +32,6 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
-
-[sub_resource type="SystemFont" id="SystemFont_be62j"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="SystemFont" id="SystemFont_heqx0"]
 font_names = PackedStringArray("Inkpen2 Script Std")
@@ -197,11 +195,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_s2vra")
 [node name="Label" type="Label" parent="HUD/HeightMargin/HeightPanel"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = -1.0
-offset_right = 144.0
-offset_bottom = 54.0
+offset_top = 30.0
+offset_right = 139.0
+offset_bottom = 66.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_be62j")
+theme_override_fonts/font = ExtResource("11_hley3")
 theme_override_font_sizes/font_size = 40
 text = "Height:"
 horizontal_alignment = 1

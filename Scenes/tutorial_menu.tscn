@@ -1,30 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq3my1ly33vl3"]
+[gd_scene load_steps=10 format=3 uid="uid://bq3my1ly33vl3"]
 
 [ext_resource type="Script" path="res://Scripts/tutorial_menu.gd" id="1_nhbnk"]
 [ext_resource type="Texture2D" uid="uid://gew832q0scof" path="res://Assets/arrow_keys.png" id="1_wu828"]
 [ext_resource type="Texture2D" uid="uid://d31fxf374g2y2" path="res://Assets/wasd_keys.png" id="2_26t2r"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_c0dxo"]
 [ext_resource type="PackedScene" uid="uid://bv128c5ohqcd0" path="res://Scenes/calibrate_screen.tscn" id="2_iin75"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="5_l2ind"]
-
-[sub_resource type="SystemFont" id="SystemFont_y8c6f"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_ooqg7"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_ewa3i"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_lbpod"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_fbmnn"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd4aq"]
 bg_color = Color(1, 1, 1, 1)
@@ -38,10 +19,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
-
-[sub_resource type="SystemFont" id="SystemFont_x7epw"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb7xs"]
 bg_color = Color(1, 1, 1, 1)
@@ -87,7 +64,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_y8c6f")
+theme_override_fonts/font = ExtResource("2_c0dxo")
 theme_override_font_sizes/font_size = 120
 text = "Tutorial"
 horizontal_alignment = 1
@@ -96,7 +73,7 @@ vertical_alignment = 1
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_ooqg7")
+theme_override_fonts/font = ExtResource("2_c0dxo")
 theme_override_font_sizes/font_size = 40
 text = "Move using WASD or the arrow keys, but only press on the beat of the music! 
 If you press a key off beat, you won't move."
@@ -134,8 +111,8 @@ horizontal_alignment = 1
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_ewa3i")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("2_c0dxo")
+theme_override_font_sizes/font_size = 36
 text = "Dodge falling projectiles to make it to the top. 
 And don't get caught by the bottom of the screen!"
 horizontal_alignment = 1
@@ -143,8 +120,8 @@ horizontal_alignment = 1
 [node name="Label6" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_lbpod")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("2_c0dxo")
+theme_override_font_sizes/font_size = 36
 text = "You can calibrate the audio / input delay below, 
 or anytime in the Settings menu"
 horizontal_alignment = 1
@@ -160,8 +137,8 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_fbmnn")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_c0dxo")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_xd4aq")
 text = "Calibrate"
 
@@ -170,8 +147,8 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_x7epw")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_c0dxo")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_sb7xs")
 text = "Continue"
 

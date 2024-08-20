@@ -1,16 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpart8foac1vt"]
+[gd_scene load_steps=10 format=3 uid="uid://dpart8foac1vt"]
 
 [ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="1_667e5"]
 [ext_resource type="PackedScene" uid="uid://bv128c5ohqcd0" path="res://Scenes/calibrate_screen.tscn" id="1_c0ac2"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_h3fbj"]
 [ext_resource type="PackedScene" uid="uid://dv2hwpyfd6txe" path="res://Scenes/display_settings_menu.tscn" id="3_1nsbr"]
 [ext_resource type="PackedScene" uid="uid://frq2x56putw5" path="res://Scenes/audio_settings_menu.tscn" id="4_886el"]
-
-[sub_resource type="SystemFont" id="SystemFont_y8c6f"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_c27ch"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igmq8"]
 bg_color = Color(1, 1, 1, 1)
@@ -25,9 +19,6 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
 
-[sub_resource type="SystemFont" id="SystemFont_f1waa"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0ocb"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 4
@@ -41,9 +32,6 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
 
-[sub_resource type="SystemFont" id="SystemFont_8a0ff"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbcii"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 4
@@ -56,9 +44,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
-
-[sub_resource type="SystemFont" id="SystemFont_xulua"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imsaq"]
 bg_color = Color(1, 1, 1, 1)
@@ -102,7 +87,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_y8c6f")
+theme_override_fonts/font = ExtResource("2_h3fbj")
 theme_override_font_sizes/font_size = 120
 text = "Settings"
 horizontal_alignment = 1
@@ -119,12 +104,12 @@ theme_override_constants/separation = 25
 alignment = 1
 
 [node name="LatencySetting" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(400, 75)
+custom_minimum_size = Vector2(500, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_c27ch")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_h3fbj")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_igmq8")
 text = "Calibrate Latency"
 
@@ -133,8 +118,8 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_f1waa")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_h3fbj")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_k0ocb")
 text = "Display"
 
@@ -143,8 +128,8 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_8a0ff")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_h3fbj")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_tbcii")
 text = "Audio"
 
@@ -162,8 +147,8 @@ custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_xulua")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_h3fbj")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_imsaq")
 text = "Back"
 

@@ -1,14 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://ccxvvldipp0tu"]
+[gd_scene load_steps=14 format=3 uid="uid://ccxvvldipp0tu"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_yl3ek"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_ox23x"]
 [ext_resource type="PackedScene" uid="uid://dpart8foac1vt" path="res://Scenes/settings_menu.tscn" id="2_xnmmh"]
 [ext_resource type="PackedScene" uid="uid://bq3my1ly33vl3" path="res://Scenes/tutorial_menu.tscn" id="3_wgafv"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="4_m8hej"]
 
 [sub_resource type="Theme" id="Theme_o6hep"]
-
-[sub_resource type="SystemFont" id="SystemFont_6w3ro"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="SystemFont" id="SystemFont_61xiw"]
 font_names = PackedStringArray("Inkpen2 Script Std")
@@ -17,10 +15,7 @@ font_names = PackedStringArray("Inkpen2 Script Std")
 default_font = SubResource("SystemFont_61xiw")
 default_font_size = 56
 
-[sub_resource type="SystemFont" id="SystemFont_gdm5c"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4i3m6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8kdb"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 4
 border_width_top = 4
@@ -35,9 +30,6 @@ expand_margin_bottom = 4.0
 
 [sub_resource type="Theme" id="Theme_o3glw"]
 
-[sub_resource type="SystemFont" id="SystemFont_bcljs"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5eyr7"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 4
@@ -50,9 +42,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 expand_margin_bottom = 4.0
-
-[sub_resource type="SystemFont" id="SystemFont_yyey1"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1mm2"]
 bg_color = Color(1, 1, 1, 1)
@@ -104,7 +93,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 12
 theme_override_constants/shadow_offset_y = 12
 theme_override_constants/outline_size = 1
-theme_override_fonts/font = SubResource("SystemFont_6w3ro")
+theme_override_fonts/font = ExtResource("2_ox23x")
 theme_override_font_sizes/font_size = 120
 text = "Cat Climber"
 horizontal_alignment = 1
@@ -125,9 +114,9 @@ layout_mode = 2
 theme = SubResource("Theme_0had7")
 theme_type_variation = &"Primary"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_gdm5c")
-theme_override_font_sizes/font_size = 56
-theme_override_styles/normal = SubResource("StyleBoxFlat_4i3m6")
+theme_override_fonts/font = ExtResource("2_ox23x")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_m8kdb")
 text = "Play"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainerAll/HBoxContainer/VBoxContainerButtons"]
@@ -135,8 +124,8 @@ custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme = SubResource("Theme_o3glw")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_bcljs")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_ox23x")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_5eyr7")
 text = "Settings"
 
@@ -145,8 +134,8 @@ custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/h_separation = 0
-theme_override_fonts/font = SubResource("SystemFont_yyey1")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_ox23x")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_y1mm2")
 text = "Quit"
 

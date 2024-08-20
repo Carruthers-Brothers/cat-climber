@@ -1,19 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://frq2x56putw5"]
+[gd_scene load_steps=8 format=3 uid="uid://frq2x56putw5"]
 
 [ext_resource type="Script" path="res://Scripts/audio_settings_menu.gd" id="1_igpkq"]
 [ext_resource type="AudioStream" uid="uid://b1h5ib1c84xwk" path="res://Assets/Music/game_jam_song.mp3" id="2_odu8b"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_xb7rs"]
 [ext_resource type="Texture2D" uid="uid://cq8adw03ye573" path="res://Assets/kittyPaw2.png" id="3_s8bk2"]
 
 [sub_resource type="Theme" id="Theme_7nr2n"]
-
-[sub_resource type="SystemFont" id="SystemFont_pxvll"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="SystemFont" id="SystemFont_fuuj3"]
-font_names = PackedStringArray("Inkpen2 Script Std")
-
-[sub_resource type="SystemFont" id="SystemFont_mcrs7"]
-font_names = PackedStringArray("Inkpen2 Script Std")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdmef"]
 content_margin_left = 5.0
@@ -64,7 +56,7 @@ alignment = 1
 layout_mode = 2
 theme = SubResource("Theme_7nr2n")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_pxvll")
+theme_override_fonts/font = ExtResource("2_xb7rs")
 theme_override_font_sizes/font_size = 120
 text = "Music Volume"
 horizontal_alignment = 1
@@ -89,7 +81,7 @@ value = 100.0
 [node name="VolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_fuuj3")
+theme_override_fonts/font = ExtResource("2_xb7rs")
 theme_override_font_sizes/font_size = 50
 text = "100%"
 
@@ -104,8 +96,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-theme_override_fonts/font = SubResource("SystemFont_mcrs7")
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_xb7rs")
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_sdmef")
 text = "Back"
 
