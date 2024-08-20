@@ -6,6 +6,7 @@ extends Node2D
 const TALL_SIDE_BUILDING_LIGHTER = preload("res://Assets/Tall_Side_Building_lighter.png")
 const TALL_SIDE_BUILDING_LIGHTER_2 = preload("res://Assets/Tall_Side_Building_lighter_2.png")
 const BUILDING_TOP_UNFINISHED = preload("res://Assets/Building_top_unfinished.png")
+
 const building_options = [TALL_SIDE_BUILDING_LIGHTER, TALL_SIDE_BUILDING_LIGHTER_2] # can add more building art if wanted
 
 var prev_building_position
